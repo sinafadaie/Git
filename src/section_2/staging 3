@@ -1,0 +1,36 @@
+after we initiate project we should tell git to track our files
+we can use
+"git add ." or "git add all"
+to move all files on stage so git will track these files from now
+
+Note: when git start track a file, he get track it always
+      (it will be exist on stage area)
+      so we just need introduce it just once (like when we use "add ." at first time)
+      so if we create "new file" we should add it to stage manually
+      then git will track it automatically.
+
+
+Note: we can add multiple files by space:
+      git add file1 file2 file3
+
+      we can add all multiple files by patterns:
+      git add .txt (add all text files)
+
+      we can add all files recursively:
+      git add .    (be carful, sometimes we have some files we don't want to
+                    add to git)
+
+
+Note: we can use
+      "get staus"
+      to what we have on STAGE
+      we can see if we have some files that we don't track them!
+      we can see if we have some files on stage that need to be commit
+
+
+example: we have been used git on design pattern 1 until now,
+         we delete exercise folder on section 8,
+         we add these changes to stage area by:
+         "git add ."
+         now are stage is ready he just need to be commit to move
+         these changes to our repository (local repository)

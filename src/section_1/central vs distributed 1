@@ -1,0 +1,29 @@
+Version Control Systems fall in two category
+Centralized
+Distributed
+
+In centralized system, all team member connect to a central system
+to get the latest copy of the code and to share changes to each other
+like "subversion" & "Microsoft Team Foundation Server" are centralized version control systems.
+the problem is, the SINGLE POINT OF FAILURE.
+if server down, we can not collaborate or save snapshots. (we should wait!)
+
+
+In distributed systems, we have not this problem!
+every team member has a copy of the project and history,
+the code is not limited to specific server!
+we can save snapshots locally on our machines.
+if the central server is offline (git.com)
+we can synchronize our work directly to others.
+like "Git" & "Mercurial"
+
+
+Note: we have some GUI tools for using git
+      like "GitKraken" & "Sourcetree"
+      but we use terminal in the course most of the times!
+
+
+Note: if we install Git on windows,
+      we will have "Git BASH"
+      BASH: Born Again SHEll,
+      its a command prompt window, that simulate Unix or Linux environments.

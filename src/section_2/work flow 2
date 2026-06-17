@@ -1,0 +1,59 @@
+ creating a "commit" like create a snapshot from entire project!
+
+ git has an intermediate step, that most other version control
+ does not have it. "STAGING" or "INDEX"
+ it's what we propose to next commit
+ so at first we add our modifying files to stage area,
+ after reviewing we male a commit and move them to repository directory (.git)
+ to store them permanently.
+
+ Note: it allow us to review the changed file,
+       so we can restore them from stage area.
+
+
+example: imagine we have empty directory,
+         we add couple of file (file1, file2)
+         we use "git add file1 file2" to add them on stage area
+         we review these files every thing is ok, so we commit them
+         git commit -m "initiate commit"
+         then we have them permanently on git repository
+         now we have one commit in our repository
+
+
+usual misconception: after commit, the stage are is not cleared!
+                     our file1 & file2 are exist on stage yet!
+                     that's why many people find git confusing!
+                     what we have on stage area now, is exactly same snapshot that
+                     we have in the repository.
+
+summary: staging area is actually similar to staging environment we use
+         when releasing software to production, it's either a reflection
+         what we currently have in production or the next version that is
+         going to go in production.
+
+
+example: imagine we delete file1 from our project now!
+         what we have in staging now? file1 & file2
+         so we need to add this file to stage!
+         "git add file1"
+         (by this "adding" the file1 will remove from stage)
+         then by commiting we remove it from repository.
+         git commit -m "removing file1"
+         (we have two commit message now)
+
+
+Note: each "commit" has unique id,
+      each commit has information who?what?Date,...
+      "
+          GIT DOES NOT STORE DELTA OR WHAT WAS CHANGED
+          IT STORES THE FULL CONTENT ON EACH COMMIT!
+      "
+      so it can restore project to pre steps quickly
+      it's not waist space? no it's so efficient!
+      it's compressed
+
+
+
+
+
+

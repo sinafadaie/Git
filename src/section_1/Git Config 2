@@ -1,0 +1,80 @@
+at first we need set some configuration on Git!
+Name/Email/default editor/line ending!
+
+
+we can specify this configuration settings at three different level,
+at top level we have SYSTEM LEVEL, below that we have GLOBAL LEVEL, at the end we have LOCAL LEVEL
+
+"SYSTEM LEVEL": the setting that we have here
+                will apply to all users of the current computer
+                (some different user can use one computer)
+
+"GLOBAL LEVEL": the settings here
+                will apply to all repositories of the current user
+                (some different user can use one computer)
+
+"LOCAL LEVEL": the settings here
+               will apply to the current repository in the current folder
+               so we can have different settings for different projects at this level
+
+
+1.set name at the global level:
+  git config --global user.name Cenna                       //we can see the current: git config --global user.name
+
+2.set email at the global level:
+  git config --global user.email sinafadaie7@gmail          //we can see the current: git config --global user.email
+
+3.set default editor:
+  git config --global core.editor "idea --wait"             //we can see the current: git config --global core.editor
+                                                            //Mosh use visual studio so he use "code" instead "idea"
+
+Note: first we should "Create Command-line Launcher"
+      for intellij!
+      so git can open it by a command (read shell note)
+
+Note: "wait flag"
+      tell the current terminal window to wait
+      until we close the editor
+
+Note: all these configurations we set stored on a text file ()
+      we can edite this file using our
+      default editor (intellij):
+      git config --global -e                                //will open config file on intellij
+      ("e" stands for edite)
+
+Note: we set intellij as default editor
+      because sometimes the git need to open some editor
+      like editing config file
+      like when he want to write some messages
+      he need to know open witch editor.
+
+4.set line ending
+  windows use \r\n to represent this is end line (CRLF method)
+  MAC & Linux just use \n to represent this is end line (LF method)
+  so if some developer use MAC, some of them use Windows
+  the file get some changes, without any real change!
+  (git recognize these changes, it's plute the history! it's create conflicts)
+
+  we store the  project in LF on repo (on the git hub)
+  and set some local config to handle these
+
+  Windows: when we pulling the project we want to convert LF to CRLF
+           when we pushing the project we want to convert CRLF to LF
+           so we need some process in both action, in this situation we set:
+           "git config --global core.autocrlf true"             //autocrlf means handle CRLF automatically!
+
+  MAC & LINUX: when we pulling the project is LF so we don't need do any thing
+               when we pushing the project is LF too, but we want to guarantee the code
+               has not any \r (like added by some app or accidentally)
+               so on pushing we need some checks, in this situation we set:
+               git config --global core.autocrlf input
+
+  Note: Why do we have two formats at all?
+        This goes back to old conventions.
+        CR means move the cursor back to the beginning of the line. (CR means Carriage Return)
+        LF means move down to the next line. (LF means Line Feed )
+        Some systems decided:
+        Just moving to the next line is enough → LF
+        You should both return to the beginning of the line and move to the next line → CRLF (we have two condition
+        This historical difference has remained with us to this day.                          to ending a line!)
+

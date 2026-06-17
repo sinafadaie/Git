@@ -1,0 +1,46 @@
+when we want to set default editor for git,
+at first we need a command on terminal that can open the editor.
+(code is standard for visual studio
+ idea is standard for intellij)
+
+we should set this command first,
+when we execute a command on terminal,
+the shell look some folders that introduce this command (like /usr/local/bin)
+(the PATH VARIABLE store the address that we want put these files)
+the Intellij related folder is not add to this path automatically,
+we should put it there we call this as:
+"Create Command-line Launcher"
+
+1.at first we need the path address
+  that stores the exe file of our app (our editor)
+  we can find it from the intellij UI
+  (Tools--->create command line launcher):
+  /Applications/IntelliJ IDEA.app/Contents/MacOS
+
+2.now we put the address on the PATH (where shell explore for commands):
+  export PATH="/Applications/IntelliJ IDEA.app/Contents/MacOS:$PATH"
+
+Note: now when we write "idea" on terminal
+      our intellij will be opened
+
+Note: this folder have the standard name for command ("idea" for intellij)
+      the visual studio the standard name is "code"
+      it's like "git", when we install git, it automatically add
+      this to PATH, so we will access to "git" as command
+      on intellij we should do it manually
+
+Note: we can set any name for this:
+      sudo ln -s "/Applications/IntelliJ IDEA.app/Contents/MacOS/idea" /usr/local/bin/intellij
+      he create "SYMBOLIC LINK",
+      in the directory of /usr/local/bin (shell check this directory by default)
+      he create a file with the name of "intellij"
+      that inside this file we have a link to:
+      /Applications/IntelliJ IDEA.app/Contents/MacOS/idea
+
+Note: PATH VARIABLE, is an environment variable
+      it store all the addresses that shell wants to check
+      we add our new address there
+      addresses separate by ":"
+      we can see the addresses (value of this environment variable)
+      by "echo $PATH" on terminal
+      :/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin
