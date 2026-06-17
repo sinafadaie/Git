@@ -1,0 +1,19 @@
+we can skip staging!
+it's not normal, and we should not use it often!
+we use stage to review the changes.
+
+if we want to skip staging,
+after modifying a file,
+instead using "git add file_name" to move changes to stage,
+we can use "git commit" directly!
+
+git commit -a -m "skip staging!"
+
+Note: when we skip staging, and using commit directly
+      the git will update the stage area automatically!
+
+Note: "-a" means
+      commit all modified files.
+
+Note: we can mix -a & -m together and write
+      git commit -am "skip staging!"
