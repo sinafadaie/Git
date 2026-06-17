@@ -1,0 +1,25 @@
+if we rename a file (or move to new directory),
+when we use git status,
+we can see two changes
+1.removing a file with old name
+2.creating a file with new name
+
+so this operations, are composite operations
+they build by combining two different operation
+
+Note: my git recognize it as rename!
+      it's because "rename detection"
+      it's compare tow file and Guessing it is renaming!
+      it's an UI, some times we can have two steps
+
+Note: like deleting, after renaming or moving files
+      we need update it on stage,
+      git have direct command to rename or move file
+      so it execute it on both work directory and stage
+      "git mv firstName secondName"
+      we rename "removing files 6" to "removing file 6" by:
+      git mv "removing files 6" "removing files 6"
+
+Note: on terminal it depend on what directory we are!
+      if we are in leila@sinas-MacBook-Pro-------------------------> git mv "src/section_2/removing files 6" "src/section_2/removing file 6"
+      if we are in leila@sinas-MacBook-Pro/src/section_2-----------> git mv "removing files 6" "removing file 6"
