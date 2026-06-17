@@ -1,0 +1,51 @@
+we commit our changes on design pattern 1 by:
+git commit -m "remove exercise 8"
+(now we create a snapshot of the project
+ a full snapshot of the project!)
+
+
+Note: some times we need long commit message!
+      in this situation we dont use "-m" on commit command
+      just write : git commit
+      in this situation git open the default editor to writing full message!
+
+      I create some new file on exercise 8 (design pattern 1)
+      and use "git commit"
+      it's opened a file (file name: commit_editmsg)
+      the directory of file: .git/commit_editmsg
+
+Note: we should set a short description at first as title +
+      use an ENTER                                        +
+      set our long description
+
+file look like:
+
+A short description
+
+Long description.
+we want to make a long commit message
+so we use this file instead -m!
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Your branch is up to date with 'origine/main'.
+#
+# Changes to be committed:
+#	new file:   src/section_8/exercise/VideoEditor.java
+#
+
+-------------------------------------------
+
+COMMIT BEST PRACTICE:
+
+1.our commit nit be so small (like every single changes)
+  not to be so large (like entire a feature)
+  it should represent a "LOGICAL STEP"
+  because whole purpose is we can come back to last step.
+  we normally use 5 to 10 commit per day!
+
+2.use meaningful and present term on message!
+  if we have problem in naming, it's probably we need to break our commit!
+  present term means : using fix the bug
+                       instead using fixed the bug!
