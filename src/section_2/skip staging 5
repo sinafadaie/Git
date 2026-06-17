@@ -17,3 +17,6 @@ Note: "-a" means
 
 Note: we can mix -a & -m together and write
       git commit -am "skip staging!"
+
+Note: we commit "skip staging 5" by skipping
+      git commit -am "skip staging!"

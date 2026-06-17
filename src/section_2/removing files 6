@@ -1,0 +1,27 @@
+we said when we delete a file on our work directory
+it will remain on stage area
+so we should use
+"git add file_name"
+to remove it from stage area to!
+
+Note: we can see all files on current stage are by
+      "git ls-files"
+      it will show all files on stage.
+
+
+Note: so we need to step to remove a file (removing + updating stage)
+      git has a command to make it one step,
+      instead remove file by OS,
+      remove it by git
+      in this situation git will remove it both
+      from work directory & stage!
+
+      git rm file_Name (remove that file)
+
+      git rm .     (remove all files!)
+
+      git rm txt.  (remove text files)
+
+Note: we remove "VideoEditor" on design pattern 1
+      section 8 ,exercise by:
+      git rm src/section_8/exercise/VideoEditor.java
