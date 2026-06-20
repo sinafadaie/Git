@@ -18,8 +18,15 @@ Note: like deleting, after renaming or moving files
       so it execute it on both work directory and stage
       "git mv firstName secondName"
       we rename "removing files 6" to "removing file 6" by:
-      git mv "removing files 6" "removing files 6"
+      git mv "removing files 6" "removing file 6"               //renaming is kind of moving
 
 Note: on terminal it depend on what directory we are!
       if we are in leila@sinas-MacBook-Pro-------------------------> git mv "src/section_2/removing files 6" "src/section_2/removing file 6"
       if we are in leila@sinas-MacBook-Pro/src/section_2-----------> git mv "removing files 6" "removing file 6"
+
+Note: now for git project
+      I initiate git locally, but i have not any repository on git-hub
+      so we make some commits, but git don't say you have some commit head of origin/main!
+      but in design pattern i have repository on hit-hub
+      he tell me you have some commit head of origin
+      (he compare ny local by server)

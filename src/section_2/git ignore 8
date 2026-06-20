@@ -1,0 +1,45 @@
+in all project we have some files that we want to
+git don't track them, just ignore them!
+like environment variables that we define in spring 2 to store our secret keys.
+we dont want to log files and built in classes (like /out )
+make our repository large.
+
+we can add these files on ".gitignore" file
+we can create ".gitignore" manually
+or when we create a repository on git-hub it has option to create it
+".gitignore should be in ** ROOT **  of the project"
+
+Important Note: we should ignore these file before staging!
+                it means before first time we use "git add ."
+                if we move these file to stage, gitignore will not work!
+                because git will track all the file on stage area!
+
+                if we add these file to stage accidentally,
+                we should remove them before committing, and prevent to remain in history
+                (remove from index, but remained on disk)
+                it's what happened on spring 2.
+
+1. we create .gitignore on root spring 2 manually
+   and put our ignored files there
+   but I used git add . (so I put them on stage)
+
+2. I used some commands to remove some files from stage
+   git rm --cached -r .env                          cached: means remove them from index (not from disk)
+                                                            cached means they cashed by stage
+   git rm --cached -r .idea/                        r     : means recursively, remove sub folders
+
+Note: we can find --cached        git rm -h
+      by git help:
+
+
+3. we have some templates for .gitignore based on language
+   we can find these templates on "github.com/github/gitignore"
+   I just ignore some:
+
+   .idea/
+   *.iml
+   out/
+   target/              //create by MAVEN after compile
+   .DS_Store            //some file that OS added when use finder to explore folders
+   *.log                //every logged file (* is pattern)
+   .env                 //oue keys

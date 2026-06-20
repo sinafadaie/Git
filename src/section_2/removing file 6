@@ -9,7 +9,7 @@ Note: we can see all files on current stage are by
       it will show all files on stage.
 
 
-Note: so we need to step to remove a file (removing + updating stage)
+Note: so we need two step to remove a file (removing + updating stage)
       git has a command to make it one step,
       instead remove file by OS,
       remove it by git
