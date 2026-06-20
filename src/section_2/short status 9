@@ -1,0 +1,45 @@
+the out put of git status is very comprehensive,
+but it's wordy (it's have too words!)
+
+we can use git status -s  ("s" stand for short)
+it just brief the status!
+
+short status have two column in result (in left side)
+LEFT ONE FOR STAGE AREA
+RIGHT ONE FOR WORKING DIRECTORY
+
+
+MODIFYING FILES
+
+when we modify an existing file we get:
+ M "src/section_2/git ignore 8"  (left column is empty)
+it means we have some changes (modifying) on working directory -------> right column is M
+it means we have no change on stage                            ------->left column is empty
+
+if we add it to stage (git add .) :
+M  "src/section_2/git ignore 8"  (right column is empty)
+it means we no changes on working directory                    -------> right column is empty
+it means we have modify some file stage                        -------> left column is M
+
+if we edite something new on file before commiting pre stage
+MM  "src/section_2/git ignore 8"  (right column is empty)
+it means we have some changes (modifying) on working directory -------> right column is M
+it means we have modify some file stage                        -------> left column is M
+(we should create a new snapshot on stage (git add .))
+
+
+ADDING FILES
+
+when we add new file:
+?? "src/section_2/NEW FILE"
+due to git has not track him yet,
+he don't know the working directory &  stage are so           --------> ?
+
+if we move it to stage (git add .):
+A  "src/section_2/NEW FILE" (right column is empty)
+it means we no changes on working directory                    -------> right column is empty
+but we have "Add" a new file on stage                          -------> left column is A
+
+if we edite something new on file before commiting pre stage
+AM  "src/section_2/NEW FILE"
+it's clear!
