@@ -1,0 +1,11 @@
+we always should review our code on stage area before commiting
+it's whole purpose of stage area!
+for this we need exact line of code that we have staged.
+for this we use "diff" command
+usually we don't use terminal to comparing code!
+but just to see how is it, we want to compare our pre stage (that exist on production)
+with our new stage that we want to commit it.
+
+1.git diff --staged
+  to see what we have on staging area,
+  that is going in the next commit.
