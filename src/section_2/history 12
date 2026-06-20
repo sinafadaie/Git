@@ -1,0 +1,20 @@
+we can see history (history of our commits) by
+"git log":
+
+it shows all the pre commits.
+each commit has an Id in hexadecimal (40 character)
+
+commit 19ca1555df12528b00a2904f6c7b6094ac463737 (HEAD -> main)
+Author: Cenna <sinafadaie7@gmail.com>                           //author detail
+Date:   Sat Jun 20 13:05:24 2026 +0330                          //date detail
+
+    set visual compare                                          //message on commit
+
+----------------------
+
+"git log --oneline"
+it shows a short summary of all commit
+
+"git log --online --reverse"
+it shows a short summary of all commit
+and the order of commit based on date will reversely

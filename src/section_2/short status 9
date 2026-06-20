@@ -43,3 +43,6 @@ but we have "Add" a new file on stage                          -------> left col
 if we edite something new on file before commiting pre stage
 AM  "src/section_2/NEW FILE"
 it's clear!
+
+Note: when we have something on right column
+      we need "add" before commiting!
