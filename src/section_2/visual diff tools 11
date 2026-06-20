@@ -1,6 +1,8 @@
-comparing code on terminal is hard, we want to use visual tools
+comparing code on te rminal is hard, we want to use visual tools
 we have some tools for this (KDiff3, p4Merge,WinMerge,...)
 we wan to use or intellij
+be honestly, we dont use difftool these days!
+the editor's has tools themselves!
 
 1. we should set intellij as default diff tool:
    git config --global diff.tool intellij         //we want to set it for all our repositories (global)
@@ -18,12 +20,22 @@ Note: --diff means we want to open this editor
 Note: we use $LOCAL and $REMOTE as place holder
       for new and old files that we want to compare
 
-3.we use "git config -e" to check our setting we configured,
+3.we use "git config -e" to check our setting we configured, (I forget to write global!)
   the place holders don't set for some reason!
   we add them manually to config file!
 
+Note: it's opened some other config file!
+      we should use "git config --global -e"
+
 [difftool "intellij"]                                 [difftool "intellij"]
     cmd = "idea --wait --diff "	           cmd = "idea --wait --diff $LOCAL $REMOTE"
+
+note: the IntelliJ setting has some different from visual studio that Mosh used
+      we used :
+      [difftool "intellij"]
+      	cmd = "idea diff $LOCAL $REMOTE"
+
+      idea diff already blocks the terminal by default. (we don't need wait)
 
 4.we can now use
   "git difftool" to see unstaged changes on intellij
