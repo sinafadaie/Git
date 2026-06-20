@@ -1,0 +1,33 @@
+comparing code on terminal is hard, we want to use visual tools
+we have some tools for this (KDiff3, p4Merge,WinMerge,...)
+we wan to use or intellij
+
+1. we should set intellij as default diff tool:
+   git config --global diff.tool intellij         //we want to set it for all our repositories (global)
+                                                  //we just set "name" for this default diff tool
+                                                  //we set "intellij" as the name
+
+2.then we should tell git how to launch intellij
+  we have already add "idea" to PATH, so to say him open
+  intellij for this tool name:
+  git config --global difftool.intellij.cmd "idea --wait --diff $LOCAL $REMOTE"
+
+Note: --diff means we want to open this editor
+      for comparing.
+
+Note: we use $LOCAL and $REMOTE as place holder
+      for new and old files that we want to compare
+
+3.we use "git config -e" to check our setting we configured,
+  the place holders don't set for some reason!
+  we add them manually to config file!
+
+[difftool "intellij"]                                 [difftool "intellij"]
+    cmd = "idea --wait --diff "	           cmd = "idea --wait --diff $LOCAL $REMOTE"
+
+4.we can now use
+  "git difftool" to see unstaged changes on intellij
+  "git difftool --staged" to see staged changes on intellij
+
+
+
