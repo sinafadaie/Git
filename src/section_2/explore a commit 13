@@ -1,0 +1,83 @@
+some times we need to see exact changes on specific commit.
+to see this we have two options to explore history.
+for this we use "show command"
+
+SEE CHANGES ON A COMMIT
+
+1.use Id of that commit.
+  find Id by "git log" -----> 31d4b9e20a874b670eb292bb9371bbb9dc4f0bea
+  show that by:
+  git show 31d4b9e20a874b670eb292bb9371bbb9dc4f0bea
+
+Note: we can use just part of thee ID
+      as time as that part is unique, it will work:
+      git show 31d4b9e2
+
+2.say go back how many steps from last commit!
+  we use "HEAD POINTER"
+  head is currently in front of the last commit
+  when we want to go back,use ~(tilde/تیلده)
+
+  git show HEAD     //last commit
+  git show HEAD~1   //pre commit
+
+---------------------------------------
+
+SEE ENTIRE FILE ON A COMMIT
+
+SHOW command,show the difference!
+if we want to see entire file
+we should use file directory (we can find the directory on diff detail
+                              that show command return to us
+                              file a, file b)
+
+ git show HEAD~1:.gitignore               //it show the entire file on that commit
+
+ git show HEAD~1:src/"section titles"     //it show the entire file on that commit
+
+Note: we don't change these file on this commit!
+      we said that each commit store entire project,
+      so with this we can see the file on that point completely
+
+----------------------------------------
+
+SEE ALL DIRECTORY ON A COMMIT
+
+to see all existing directory on a commit, we can use
+git ls-tree HEAD~?
+or
+git ls-tree 31d4b9e20a874b670eb292bb9371bbb9dc4f0bea :
+
+100644 blob 13275f1ce2e08e684173d1c40052d1ace2cf01f6    .gitignore
+040000 tree c8e0212c494d8dac5a47c5771a08fe0b5d439fe7    .idea
+100644 blob c90834f2d607afe55e6104d8aa2cdfffb713f688    Git.iml
+040000 tree bdabfc7a2248bb38347b3077997d23e60441ade0    src
+
+Note: files store in "blob"
+      directory store in "tree"
+      each file and directory on each commit has ID like :
+      /src in HEAD~1: bdabfc7a2248bb38347b3077997d23e60441ade0
+      /src in HEAD~2: e1c784bfdba8c2e0918f24c43ddb4c2c34dd77ae
+
+Note: we can see the file and directory with that id
+      git show c90834f2d607afe55e6104d8aa2cdfffb713f688
+      (although the file can same in multiple q)
+
+-------------------------------------------
+
+IMPORTANT NOTE: git store the id of files in all commits
+                so he has a table that store file or lines of our code,
+                each of this file has own id,
+                he can just store that id to find that file on specific commit,
+                so if a file has not changed, will have same id in different commits:
+                c90834f2d607afe55e6104d8aa2cdfffb713f688 ------>  Git.iml in HEAD~1
+                c90834f2d607afe55e6104d8aa2cdfffb713f688 ------>  Git.iml in HEAD~2
+
+------------------------------------------
+GIT OBJECTS
+actually "show command", show objects in git DB
+
+BLOB   that store files
+TREE   that store directories
+COMMIT that store commits
+TAG    that store tags
