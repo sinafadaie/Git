@@ -1,0 +1,9 @@
+we said we have all the file project on every commit completely!
+so we can restore some file from a far commit!
+imaging we are removed some file and make commit,
+but we want to restore it
+(but because we make commit we have not that file on last commit)
+we should bring back that file from some older commit.
+
+1. I remove the first file of this section (initiate 1)
+   and make commit
