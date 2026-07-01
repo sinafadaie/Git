@@ -5,5 +5,37 @@ but we want to restore it
 (but because we make commit we have not that file on last commit)
 we should bring back that file from some older commit.
 
-1. I remove the first file of this section (initiate 1)
-   and make commit
+1. I remove the first file of this section (initiate 1)         rm initiate\ 1
+   and make commit                                              git add .
+                                                                git commit -m "removing initiate 1"
+
+2.we want to restore it, but it not exist on last commit!
+  at first we need a commit that contain our file
+  so we use history:
+  git log --oneline                                 30c6b95 (HEAD -> main) removing initiate 1
+                                                    756d4d7 undo working directory
+  the second commit after last                      52af8cf staging
+  commit is good  (756d4d7)                         8da0ac7 unstaging
+                                                    afbf06a find a commit
+                                                    8e55fd3 git log
+                                                    19ca155 set visual compare
+
+
+3.restore the file from that commit:
+  git restore --source=HEAD~1 "initiate 1"
+
+Note: we can find this from help!
+      git restore -h will introduce the argument of the command:
+
+      git restore [<options>] [--source=<branch>] <file>...     //[<options>] that introduce below
+                                                                //[--source=<branch>] means witch branch(commit)?
+                                                                //by default it is last commit, so we change it
+                                                                //<file> means use file name!
+
+Note: it will restore it to working directory       ?? "initiate 1"
+      so it does not exist on stage yet
+      so it is untracked file yet!
+
+Note: we have an another option to do this,
+      "undo or revert" the commit
+      we will talk about it later
