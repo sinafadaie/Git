@@ -13,19 +13,6 @@ Note: the command is "restore"
       so after restoring, we have the pre commit stage
 
 
-1.I create a new file as "new"              A  new
-  I add it on Stage
-
-2.I restore it to working directory         ?? new
-  (git restore --staged new)
-
-Note: because this file is not exist on pre commit,
-      when we restore, there is nothing to restore
-      so it will deleted completely from stage area
-      so it will be untracked file "??"
-
----------------------------------
-
 1.I add current file (Unstaging File 14) on stage             AM "Unstaging Files 14"
   the I modify it on working directory so our status is:
   AM "Unstaging Files 14"
@@ -36,4 +23,19 @@ Note: because this file is not exist on pre commit,
   so it will deleted completely from stage area
   so it will be untracked file "??"
 
-3.I add it to stage
+3.I add it to stage again
+  and make commit!
+
+4.then I modify the file                                    M  "Unstaging Files 14" (red M)
+  and restore it
+  (git restore --staged "Unstaging Files 14" )
+  I do nothing now!
+  because I did not add anything new to stage!
+  so by restoring, I do nothing!
+
+5.I add the changes to stage                               M  "Unstaging Files 14" (green M)
+  git add .
+
+6. restore it                                               M  "Unstaging Files 14" (red M)
+   (git restore --staged "Unstaging Files 14")
+   so we are file stage is based on pre commit
