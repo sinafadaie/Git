@@ -1,0 +1,23 @@
+change directory to "Venus" directory
+"git log" will show all history on this directory
+(Mosh has some commit on it)
+
+Note: we copy the venus folder to our project,
+      this folder has a ".git" file itself (find by:ls -a)
+      so we have the history of Mosh commits by that file!
+      actually they are two separate repository ! (nested repository)
+      we can merge them! but we want to store them separately.
+      so if we just use "add ." we get warning:
+                                                  You've added another git repository inside your current repository.
+                                                  hint: Clones of the outer repository will not contain the contents of
+                                                  hint: the embedded repository and will not know how to obtain it.
+                                                  hint: If you meant to add a submodule, use:
+
+solution: we should add this directory as "SUBMODULE", it means
+          The main repository keeps its own history
+          The submodule also keeps its own history
+          The submodule’s commits do not become part of the main repository’s history
+          The main repository only records submodule added on which commit!
+
+
+ git -c protocol.file.allow=always submodule add ~/Venus src/section_3/Venus
