@@ -1,0 +1,39 @@
+imagine we are reviewing stage area, and we find some changes
+that we add, but we don't want it!
+we want to UNDO the add command and restore changes.
+
+for this we use "RESTORE" command.      git restore --staged fileName
+                                        git restore --staged fileName1 fileName2
+                                        git restore --staged .          //period restore all files
+                                                                        //“.” has traditionally marked the end of a period of speech or thought
+                                                                        //so we call it period
+
+Note: the command is "restore"
+      because it restore the file from pre "commit"
+      so after restoring, we have the pre commit stage
+
+
+1.I create a new file as "new"              A  new
+  I add it on Stage
+
+2.I restore it to working directory         ?? new
+  (git restore --staged new)
+
+Note: because this file is not exist on pre commit,
+      when we restore, there is nothing to restore
+      so it will deleted completely from stage area
+      so it will be untracked file "??"
+
+---------------------------------
+
+1.I add current file (Unstaging File 14) on stage             AM "Unstaging Files 14"
+  the I modify it on working directory so our status is:
+  AM "Unstaging Files 14"
+
+2.after restoring it from last commit,                        ?? "Unstaging Files 14"
+  (git restore --staged "Unstaging Files 14" )
+  this file is not exist on pre commit
+  so it will deleted completely from stage area
+  so it will be untracked file "??"
+
+3.I add it to stage
