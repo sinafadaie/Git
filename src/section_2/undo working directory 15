@@ -1,0 +1,40 @@
+we said, restore command will restore the file from next environment,
+so when we use "git restore fileName"          (without --staged)
+               "git restore filename1 fileName2"
+               "git restore ."
+it will restore working directory from stage (the next step after working directory
+                                              is adding file on stage area!)
+
+Note: the stage remain intact
+      but the working directory will change
+      so we permanently removing something in this situation!
+
+1.I add the current file (undo working directory 15)
+  empty on stage area
+
+2.then I write these page on it!
+  when I restore the file
+  (git restore "undo working directory 15" )
+  it restore from stage that was an empty file!
+  so I lost all my doc!
+
+
+CLEAN COMMAND
+what if we have not that file on stage,
+in other word restore an untracked file!
+in this situation because the restore command can not find the file
+it get some error.
+clean command will remove all untracked files.
+
+git clean
+fatal: clean.requireForce is true and -f not    given: refusing to clean
+
+Note: git say, hey it's a dangerous
+      if you delete untracked files, you can not restore them!
+      so you should use -f to force him clean the files!
+      use help to see all options on clean
+      (git clean -h)
+
+
+git clean -fd    //force the command to delete all the untracked files
+                 //"d" will remove all untracked directory too!

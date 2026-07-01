@@ -8,9 +8,12 @@ for this we use "RESTORE" command.      git restore --staged fileName
                                                                         //“.” has traditionally marked the end of a period of speech or thought
                                                                         //so we call it period
 
-Note: the command is "restore"
-      because it restore the file from pre "commit"
-      so after restoring, we have the pre commit stage
+Note: the "restore" command
+      takes the copy from the next environment,
+      so in case of the staging environment
+      the next environment is "last commit"
+      so when we use "git restore --staged"
+      it restore the file from last commit to staging area!
 
 
 1.I add current file (Unstaging File 14) on stage             AM "Unstaging Files 14"
