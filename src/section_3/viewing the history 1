@@ -15,9 +15,59 @@ Note: we copy the venus folder to our project,
 
 solution: we should add this directory as "SUBMODULE", it means
           The main repository keeps its own history
-          The submodule also keeps its own history
+          The submodule also keeps its  own history
           The submodule’s commits do not become part of the main repository’s history
           The main repository only records submodule added on which commit!
 
+Note: we should move the folder outside of the project
+      because the command is cloning the folder to make it submodule
+      we put the "Venus" folder on the ~/Venus src/section_3/Venus
+      then use:
+      git -c protocol.file.allow=always submodule add ~/Venus src/section_3/Venus
 
- git -c protocol.file.allow=always submodule add ~/Venus src/section_3/Venus
+now to see this nested repository history
+we change the directory to it (cd/src/section_3/Venus)
+and use
+"git log"                       or
+"git log --oneline"
+
+---------------------------------------
+
+--STAT OPTION
+we can use --state to see some detail on each commit
+"git log --oneline --stat":                  a642e12 (HEAD -> master, origin/master, origin/HEAD) Add header to all pages.
+                                             audience.txt                                    | 4 +++-
+on this commit                               objectives.txt                                  | 1 +
+we add 4 changes on audience.txt             sections/creating-snapshots/init.txt            | 2 +-
+3 insert lines                               sections/creating-snapshots/staging-changes.txt | 2 +-
+1 removing line                              toc.txt                                         | 2 +-
+                                             5 files changed, 7 insertions(+), 4 deletions(-)
+
+Note: we can use --stat
+      on git log (without oneline)
+      to see details on each commit
+      (git log --stat)
+
+
+
+--PATCH OPTION
+when we want to see actual changes (not just how many line has changed!)
+we can use path option (it will show diff!)
+git log --patch:
+                    commit a642e1229e3cb69be9bf075d9fe5e752e9a17458 (HEAD -> master, origin/master, origin/HEAD)
+                    Author: Moshfegh Hamedani <moshfegh@live.com.au>
+                    Date:   Tue Aug 18 09:23:19 2020 -0700
+
+                        Add header to all pages.
+
+                    diff --git a/audience.txt b/audience.txt
+                    index 6b3f8f5..4cfef55 100644
+                    --- a/audience.txt
+                    +++ b/audience.txt
+                    @@ -1,2 +1,4 @@
+                    +AUDIENCE
+                    +
+                     This course is for anyone who wants to learn Git.
+                    -No prior experience is required.
+                    +No prior experience is required.
+                    \ No newline at end of file
