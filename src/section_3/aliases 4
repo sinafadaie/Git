@@ -1,0 +1,14 @@
+we can setup some aliases for commands,
+like long command we used on pre lesson tto formatting log command!
+
+git config --global alias.(alias name) "the command"        //global means for all our repositories
+
+
+git config --global alias.lg "log --pretty=format:'%an %h on %cd'"   //we should not use git on nested command!
+                                                                     //he knows he is git!
+
+git config --global alis.unstage "restore --staged ."                //define "unstage" to unstage all the current change to pre state
+                                                                     //restore stage area to pre commit!
+
+Note: check the config file to find the alise we defined:
+      git config --global -e
