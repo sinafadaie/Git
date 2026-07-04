@@ -1,0 +1,32 @@
+in real project we have over thousands commits on each project!
+so we need filter them!
+
+git log --oneline -3                        //show just pre 3 commits!
+
+git log --oneline --author="Cenna"          //filter commits by author name
+
+git log --oneline --after="yesterday"       //we can use "before" instead after
+git log --oneline --after="2020-08-17"
+git log --oneline --after="one week ago"
+git log --oneline --after="two days ago"
+
+git log --oneline 9b6ebfd..91f7d40          //find all commits between two commits
+
+git log --oneline toc.txt                   //find all commits that modify or change "toc.txt" file
+
+git log --oneline --grep="GUI"              //search commit by commit message! (it's case sensitive)
+Note: he find some commit
+      (24e86ee Add command line and GUI tools to the objectives.)
+      we can use show command to see that commit:
+      "git show 24e86ee"
+
+
+
+git log --oneline -S"OBJECTIVES"           //search commits by content
+we can use show command to see             //it will find all commits that add/remove line
+the commits he find!                       //that contain "OBJECTIVES" word
+or we can use "patch" directly to see
+what has changed:
+git log --oneline -S"OBJECTIVES" --patch
+
+
