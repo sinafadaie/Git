@@ -1,0 +1,33 @@
+we can change the output of log command!
+we can customize the output of the log command by:
+
+git log --pretty=format:""          //in double quotes we specify format string!
+                                    //it can be combination of plaintext and place holders
+
+
+git log --pretty=format:"hello"         //just show hello for all commits
+
+git log --pretty=format:"hello %an"     //after hello write author name
+
+git log --pretty=format:"%an %H"        //author name + full commit hash
+
+git log --pretty=format:"%an %h"        //author name + brief commit hash
+
+git log --pretty=format:"%an %h"        //author name + brief commit hash
+
+git log --pretty=format:"%an %h on %cd"        //author name + brief commit hash + date
+                                               //cd stand for commit date
+
+git log --pretty=format:"%Cgreen %an %h on %cd"     //all the line is green
+                                                    //C stand for color
+
+git log --pretty=format:"%Cgreen %an %Creset %h on %cd"     //just author name is green
+
+git log --pretty=format:"%Cgreen %an %Cblue %h on %cd"      //author name is green
+                                                            //rest of the line is blue!
+
+
+Note: check git-log documentation (git-scm.com/docs/git-log)
+      to see all these place holders list
+
+

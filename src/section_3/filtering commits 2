@@ -30,3 +30,10 @@ what has changed:
 git log --oneline -S"OBJECTIVES" --patch
 
 
+------------------------------------
+one the useful way to check the old commits that leila suggest
+is using IntelliJ UI
+select some lines (if don't select some line, we can see entire file)
+then right click -----> Git ------> show history for selection
+                                    show history
+
