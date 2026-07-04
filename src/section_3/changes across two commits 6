@@ -1,0 +1,18 @@
+sometimes we want to compare two different commits that are faraway!
+for this we use diff command again!
+(we previously use diff to compare stage and unstage changes)
+
+git diff HEAD~5 HEAD~1      //the order is matter
+                            //first commit means make it as old
+                            //second commit means make it as new!
+
+git diff 406e4de 19ca155
+
+
+git diff HEAD~5 HEAD~1 -- "section_3/aliases 4"      //just want to see
+                                                     //changes on specific file
+
+git diff HEAD~5 HEAD~1 --name-status
+
+
+git diff HEAD~5 HEAD~1 --name-only
