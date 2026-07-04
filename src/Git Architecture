@@ -1,0 +1,68 @@
+we can have multiple branch (multiple pointer)   (Read Git Architecture in src)
+so we need a unique pointer to point the branch
+we call this pointer as "HEAD"
+
+when Git app starts, he start from this pointer
+this pointer point to branch
+and branch point to last commit!
+
++-----+     +-----+     +-----+     +-----+     +-----+
+| C1  |<----| C2  |<----| C3  |<----| C4  |<----| C5  |
++-----+     +-----+     +-----+     +-----+     +-----+
+                                       ^            ^
+                                       |            |
+                                      main       feature
+                                                    ^
+                                                    |
+                                                   HEAD
+
+Note: when we want to change branch
+      we should move HEAD pointer
+
+
+CHECKOUT ON BRANCH
+checkout command is the command that move the HEAD pointer
+when we want to switch branch:
+                               git checkout main
+                               git checkout feature
+
+
+CHECKOUT ON COMMIT
+checkout command is the command that move the HEAD pointer
+we can make heam to point on a commit instead a branch pointer!
+we call this situation as "DETACHED HEAD"
+means head detached from branches pointer:
+                                          git checkout commit_hash
+
+
++-----+     +-----+     +-----+     +-----+     +-----+
+| C1  |<----| C2  |<----| C3  |<----| C4  |<----| C5  |
++-----+     +-----+     +-----+     +-----+     +-----+
+                           ^           ^            ^
+                           |           |            |
+                          HEAD        main       feature
+
+
+Note: we use this to simulate working directory
+      to that commit.
+      it's like that commit is the las one!
+      WE CAN SEE COMPLETE SNAPSHOT OF OUR PROJECT AT A POINT!
+
+Note: when we are in detached head mood
+      we just want to explore the code,
+      we should not create new commit!
+      because it will be "DEAD COMMIT"
+
+
+DEAD COMMIT
+if we create new commit on detached head mood,
+the HEAD pointer will point to this new commit
+(and this new commit has pointer to that commit we were checkout)
+so there are not any other commit that has pointer to this commit,
+   there are not any branch pointer that has pointer to this commit,
+just HEAD pointer point to this commit!
+when we exite from detached mood
+and move to a branch (by attaching head to a branch)
+there are nothing to find that commit, it lost! it dead!
+the garbage collector will erase him later!
+

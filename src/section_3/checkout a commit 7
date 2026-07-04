@@ -1,0 +1,53 @@
+Git Architecture
+
+when we create a commit, it has a pointer to pre commit.
+so each commit knows previous commit.
+it's a link list design.
++-----+     +-----+     +-----+     +-----+     +-----+
+| C1  |<----| C2  |<----| C3  |<----| C4  |<----| C5  |
++-----+     +-----+     +-----+     +-----+     +-----+
+
+---------------------------------------------------------------
+
+we need to know where last commit.
+so we have a pointer that point to last commit
+we call this pointer as BRANCH.
++-----+     +-----+     +-----+     +-----+     +-----+
+| C1  |<----| C2  |<----| C3  |<----| C4  |<----| C5  |
++-----+     +-----+     +-----+     +-----+     +-----+
+                                       ^           ^
+                                       |           |
+                                      main       feature
+
+Note: branch is just a pointer to a commit,
+      so when we create new branch, we just create new pointer
+      that point to specific commit.
+      it means we have two pointer that point to one commit.
+      THIS TWO BRANCHES HAVE SAME HISTORY FROM THIS POINT!
+
+
+Note: in above figure,
+      we have two branch that point to separate commit
+
+---------------------------------------------------------------
+
+we can have multiple branch (multiple pointer)
+so we need a unique pointer to point the branch
+we call this pointer as "HEAD"
+
+when Git app starts, he start from this pointer
+this pointer point to branch
+and branch point to last commit!
+
++-----+     +-----+     +-----+     +-----+     +-----+
+| C1  |<----| C2  |<----| C3  |<----| C4  |<----| C5  |
++-----+     +-----+     +-----+     +-----+     +-----+
+                                       ^            ^
+                                       |            |
+                                      main       feature
+                                                    ^
+                                                    |
+                                                   HEAD
+
+Note: when we want to change branch
+      we should move HEAD pointer
