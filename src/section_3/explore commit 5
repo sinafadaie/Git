@@ -1,0 +1,21 @@
+it's just like 2.13
+when we want to find commit we have two way
+1.relative way (by HEAD)
+2.direct way (by id(hash))
+
+git show HEAD~1     //show changes
+
+git show HEAD~1:src/section_3/"formatting log command 3"        //use directory (should write based on current path)
+                                                                //we can see full final version of that file on this specific version!
+
+
+git show HEAD~1 --name-only         //just see name of the files
+                                    //that has been modified on this specific commit
+
+git show HEAD~1 --name-status       //just see name of the files
+                                    //and the status of the changes,
+                                    //like A for adding
+                                    //like M for modifying
+
+Note: this status study the commit, study the repository!
+      the "git status" just study the stage area!
