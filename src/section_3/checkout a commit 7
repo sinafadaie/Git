@@ -51,3 +51,12 @@ and branch point to last commit!
 
 Note: when we want to change branch
       we should move HEAD pointer
+
+
+------------------------------------------
+that is stunning!
+the working directory really changed!
+the working directory on intellij really changed!
+
+git checkout 31d4b9e    //go to specific commit
+git checkout main       //back to normal!
