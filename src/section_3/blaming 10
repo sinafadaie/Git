@@ -1,0 +1,12 @@
+some times we want to find who write some shity lines!
+for this we use blame command!
+
+git blame src/section_3/aliases\ 4               //find who write or modified the last time every line
+                                                 //on witch commit?
+
+git blame -L 5,10 src/section_3/aliases\ 4       //just want to see line 5 to 10
+
+git blame -e -L 5,10 src/section_3/aliases\ 4    //-e to see author email
+
+Note: intellij has it on right click,
+      git--->annotate with git blame
