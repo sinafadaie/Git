@@ -1,0 +1,83 @@
+imagine we find a bug on an application,
+but we don't know witch commit create this bug!
+we can not check out on every commit to find it! (we can have thousands of commits)
+
+BISECT
+bisect command is powerful tools to make binary search on commits,
+we introduce a bad commit (has bug) as end of the range,
+we introduce a good commit (has not the bug) as beginning of the range.
+
+1.git bisect start
+
+2.git bisect bad    //the current commit (last commit) is the bad commit
+
+3.git bisect good 01cc4bd  //introduce first commit as good commit
+
+Note: now head is detached from branch
+      git put it on middle of the range,
+      the working directory is based on this commit
+      so we run the app and check the bug.
+      then we can set new bad & good commit until we
+      find the commit has bug!
+
+git log --oneline --all:
+
+a8f8f91 (main) checkout a commit            //main as bad commit
+caea949 checkout a commit
+74db2f1 comparing commits
+ee92f9f explore commits
+5a66b8f aliasses
+52ef209 formatting log command
+51623bc filtering commit 2
+18104c9 viewing the history
+428c618 add submodule
+7bedfc8 using UI
+406e4de restore initiate 1
+30c6b95 removing initiate 1
+756d4d7 undo working directory
+52af8cf staging
+8da0ac7 (HEAD) unstaging                   //Head   ---------> the working directory is here now
+afbf06a find a commit                                          when we run the app we see the bug yet!
+8e55fd3 git log                                                so we update the bad commit again!
+19ca155 set visual compare
+89e8d47 comparing with visual tool
+a3da95f review stage
+4160104 review stage
+1158585 short status
+0b45309 git ignore
+05b94bc renaming
+e015ed8 removing files
+87fbdbc skip staging
+31d4b9e commiting
+01cc4bd staging                             //good
+
+
+4.git bisect bad 8da0ac7
+
+git log --oneline --all:
+
+a8f8f91 (main) checkout a commit
+caea949 checkout a commit
+74db2f1 comparing commits
+ee92f9f explore commits
+5a66b8f aliasses
+52ef209 formatting log command
+51623bc filtering commit 2
+18104c9 viewing the history
+428c618 add submodule
+7bedfc8 using UI
+406e4de restore initiate 1
+30c6b95 removing initiate 1
+756d4d7 undo working directory
+52af8cf staging
+8da0ac7 unstaging
+afbf06a (HEAD) find a commit                HEAD
+8e55fd3 git log
+19ca155 set visual compare
+89e8d47 comparing with visual tool
+a3da95f review stage                        GOOD
+
+
+5.at last when we find the first bad commit         git bisect reset  or
+  we should attach the HEAD to branch.              git checkout main
+
