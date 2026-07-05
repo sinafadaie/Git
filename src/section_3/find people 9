@@ -1,0 +1,14 @@
+some time we need to fine all the people participate on the project
+for this we can use:
+
+"git shortlog"   //it show all the developers by number of commits
+                 //it provide summary of commits like messages,...
+
+Note: we have some option on it
+      se them by:
+      git shortlog -h
+
+
+git shortlog -n    //sort output according to the number of commits per author
+git shortlog -s    //remove summary (supper press)
+

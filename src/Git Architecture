@@ -53,6 +53,9 @@ Note: when we are in detached head mood
       we should not create new commit!
       because it will be "DEAD COMMIT"
 
+Note: moving the HEAD is the benefit of the git
+      we can access the app on every point of history!
+      it's great.
 
 DEAD COMMIT
 if we create new commit on detached head mood,

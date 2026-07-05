@@ -51,7 +51,7 @@ and branch point to last commit!
 
 Note: when we want to change branch
       we should move HEAD pointer
-
+      so we use  "checkout" command
 
 ------------------------------------------
 that is stunning!
@@ -60,3 +60,8 @@ the working directory on intellij really changed!
 
 git checkout 31d4b9e    //go to specific commit
 git checkout main       //back to normal!
+
+
+Note: in detach mood use  "git log --oneline --all"
+      to see where is the branch pointer
+             where is the head pointer
