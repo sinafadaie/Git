@@ -1,0 +1,17 @@
+sometimes we need to bookmark certain points int he history,
+label a commit as specific one, like a commit that represent a version.
+or a commit that include some important feature.
+
+
+git tag v1.0             //create tag on current commit (last commit)
+
+git tag v1.0 5a66b8fd    //create tag on 5a66b8fd
+
+
+Note: we can see tag on log:      18e1662 (HEAD -> main, tag: v1.0) blame       //this commit has tag
+                                  c3ca9f3 shortlog
+                                  0818300 binary search on commits
+                                  a8f8f91 checkout a commit
+                                  caea949 checkout a commit
+                                  74db2f1 comparing commits
+
