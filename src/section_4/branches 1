@@ -1,0 +1,50 @@
+branches let us work in isolation, it provide different working directory!
+imagine branch as separate isolated workspace.
+** when we switch between branches, our working directory will change **
+branches are just some pointer that point to specific commit!
+
+we develop on separate branch like "feature",
+after testing and make sure it is stable,
+we merge it to our main branch like "master"
+
+our main branch like "master"
+should always be stable, ready to release
+and new joiner developer access to stable codes!
+
+Note: git manage branching differently from other version control system!
+      the other make a copy of all the project! it so heavy and expensive in big projects
+      so they are very slow on branching! but git is supper fast!
+      it does not make copy, it just create a simple pointer!
+
+Note: branches are just 40 byte file that contain commit id.
+      head is just file that contain branch-name.
+
+
+
+                                     master
+                                       |
+                                       v
++-----+     +-----+     +-----+     +-----+
+| C1  |<----| C2  |<----| C3  |<----| C4  |
++-----+     +-----+     +-----+     +-----+
+                                       ^
+                                       |
+                                    feature
+
+
+
+after switch to feature branch
+and make some new commits:
+                                     master
+                                       |
+                                       v
++-----+     +-----+     +-----+     +-----+     +-----+     +-----+
+| C1  |<----| C2  |<----| C3  |<----| C4  |<----| C5  |<----| C6  |
++-----+     +-----+     +-----+     +-----+     +-----+     +-----+
+                                                               ^
+                                                               |
+                                                            feature
+
+                                                               ^
+                                                               |
+                                                              HEAD
