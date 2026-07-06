@@ -1,6 +1,6 @@
 sometimes we need to bookmark certain points int he history,
 label a commit as specific one, like a commit that represent a version.
-or a commit that include some important feature.
+or a commit that introduce some important feature.
 
 
 git tag v1.0             //create tag on current commit (last commit)
@@ -8,10 +8,47 @@ git tag v1.0             //create tag on current commit (last commit)
 git tag v1.0 5a66b8fd    //create tag on 5a66b8fd
 
 
-Note: we can see tag on log:      18e1662 (HEAD -> main, tag: v1.0) blame       //this commit has tag
+Note: we can see tag on log:      dd889bd (HEAD -> main) tags
+                                  18e1662 (tag: v1.0) blame         //this commit has tag
                                   c3ca9f3 shortlog
                                   0818300 binary search on commits
                                   a8f8f91 checkout a commit
                                   caea949 checkout a commit
-                                  74db2f1 comparing commits
 
+Note: we can checkout (move HEAD) on commit
+      by his tag!
+      "git checkout v1.0"
+
+Note: we can see all the tags we defined by
+      "git tag"
+
+LIGHTWEIGHT TAG
+it just a pointer to a commit (just like a branch)
+the v1.0 that we defined earlier was lightweight tag!
+
+ANNOTATE TAG
+it's another tag that is more than a pointer!
+it's a complete object with a bunch of properties
+like tagger name, emil, message,...
+(it's separate object, not just a reference!)
+
+git tag -a v1.1 -m "annotated tag!"     //-a create annotated tag (create an object)
+                                        //not just a reference or pointer
+                                        //it put tag on last commit
+
+----------------------------------
+
+git tag -n      //show tag messages
+
+v1.0            blame               //it's the commit message
+v1.1            annotated tag
+
+Note: LIGHTWEIGHT tags is just a pointer, so he just show commit message!
+      ANNOTATED tag is separate object, it has own message (we used -m)
+
+
+----------------------------------
+
+git show v1.1       //we can show a commit by his tag!
+
+git tag -d v1.1     //delete tag!
