@@ -45,6 +45,15 @@ Note: we can create multiple stash!
       we can move them to another stash separately!
       "git stash push -m "another stash"
 
+Note: "UNTRACKED FILE" will not add to stash automatically
+      (we have not untracked file, because it added by intellij)
+      but if we have, we should use "all option" to make it involved
+
+      "git stash push -a -m "working on stashing 4 & working with branches 2"
+      or
+      "git stash push -am "working on stashing 4 & working with branches 2"     //combine -a & -m
+                                                                                //to create --am
+
 Note: we can see all our stashes by
       "git stash list"       stash@{0}: On master: another stash
                              stash@{1}: On master: working on stashing 4 & working with branches 2

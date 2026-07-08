@@ -1,0 +1,92 @@
+  when we have some multiple branches
+  it's better to use "graph option" to see history
+  it's better show hoe branches diverged (منحرف شد — “deviated” or “went in a different direction”)
+
+"git log --oneline -all --graph"      //it's long command and useful one
+                                      //we can create alis for it!
+
+* ab19ca5 (HEAD -> main) some extra note
+* aa7746b stashing
+* 85c4466 comparing branches
+* 9c4fddb create branch
+* 66580ec create branch
+| * 7c4a76d (bugfix/signup-form) fix bug    //where bugfix branch diverged
+|/                                          //it showed by --graph
+* 0af669d create branch
+* b970500 branches
+* 39fcaae use UI
+* 07de7c5 tag
+
+--------------------------------------
+FAST FORWARD MERGE
+imagine we are in some step earlier,
+when we are creating bugfix branch, and main was below:
+
+7c4a76d (bugfix/signup-form) fix bug     //what we have in 4.2 (working with branches)
+66580ec (HEAD ->main) create branch      //we are in main branch
+0af669d create branch
+b970500 branches
+39fcaae use UI
+
+"
+ IF WE USE GRAPH, WE CAN SEE WE ARE IN LINEAR MOOD
+ MAIN IS NOT DIVERGE FROM BUGFIX BRANCH
+"
+
+* 7c4a76d (bugfix/signup-form) fix bug   //in graph mood
+* 66580ec (HEAD ->main) create branch    //we just have some forward commits!
+* 0af669d create branch
+* b970500 branches
+* 39fcaae use UI
+
+if we want to bring bugfix changes to main branch,
+we just need move main pointer to some forward commits,
+it's remain linear, there is not any diverge, history is not changed!
+this is FAST "FORWARD MERGE"
+
+"git merge bugfix/signup-form"      //run this on main branch
+                                    //to move main to last commit on bugfix branch
+
+* 7c4a76d (HEAD ->main,bugfix/signup-form) fix bug   //after merging
+* 66580ec  create branch                             //main &  bugfix will point to 7c4a76d
+* 0af669d create branch
+* b970500 branches
+* 39fcaae use UI
+
+Note: we don't create any new commit
+      by merging process!
+      so we don't need any new message on merging!
+
+------------------------------------------------------------
+NO FAST FORWARD MERGE
+imagine we have new bug on login-form!
+we add some new line on "branches 1" file to solve this!
+we add them on new branch as "bugfix/login-form"
+
+1."git switch -C bugfix/login-form"   //create and switch simultaneously!
+   and put some lines on "branches 1"
+   and commit them
+
+Note: we use stashing to switch
+      to bugfix/login-form!
+
+   * a607336 (bugfix/login-form) fix login bug
+   * ab19ca5 (HEAD -> main) some extra note         //we backed to main
+   * aa7746b stashing                               //and has just a new commit on above
+   * 85c4466 comparing branches
+   * 9c4fddb create branch
+   * 66580ec create branch
+   | * 7c4a76d (bugfix/signup-form) fix bug
+   |/
+   * 0af669d create branch
+   * b970500 branches
+   * 39fcaae use UI
+   * 07de7c5 tag
+
+
+2.we can use merge to fast forward merge!
+  but we want to merge it on no fast forwarding!
+
+  "git merge --no-ff bugfix/login-form"     //run it on main branch
+                                            //ff stand for fast forward
+

@@ -1,3 +1,19 @@
+"git log --oneline -all --graph"
+
+* ab19ca5 (HEAD -> main) some extra note
+* aa7746b stashing
+* 85c4466 comparing branches
+* 9c4fddb create branch
+* 66580ec create branch
+| * 7c4a76d (bugfix/signup-form) fix bug    //where bugfix branch diverged
+|/                                          //it showed by --graph
+* 0af669d create branch
+* b970500 branches
+* 39fcaae use UI
+* 07de7c5 tag
+
+-----------------------------------------
+
 git log --oneline --all
 
 aa7746b (HEAD -> main) stashing             //main is here
