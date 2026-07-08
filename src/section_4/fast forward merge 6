@@ -70,7 +70,7 @@ we add them on new branch as "bugfix/login-form"
 Note: we use stashing to switch
       to bugfix/login-form!
 
-   * a607336 (bugfix/login-form) fix login bug
+   * 7b7a5dc (bugfix/login-form) fixbug login form
    * ab19ca5 (HEAD -> main) some extra note         //we backed to main
    * aa7746b stashing                               //and has just a new commit on above
    * 85c4466 comparing branches
@@ -90,3 +90,77 @@ Note: we use stashing to switch
   "git merge --no-ff bugfix/login-form"     //run it on main branch
                                             //ff stand for fast forward
 
+  by this we just not move main pointer forward!
+  we create new commit by merging process,
+  we make "bugfix/login-form" as a deviation,
+  and merging commit has a pointer to him
+
+*   3c4766e (HEAD -> main) Merge branch 'bugfix/login-form'
+|\
+| * 7b7a5dc (bugfix/login-form) fixbug login form       //the vertical lines are red! |
+|/                                                                                    |
+* 0f102e9 forward commit                                                              |
+* ab19ca5 some extra note
+* aa7746b stashing
+* 85c4466 comparing branches
+* 9c4fddb create branch
+* 66580ec create branch
+| * 7c4a76d (bugfix/signup-form) fix bug
+|/
+* 0af669d create branch
+* b970500 branches
+* 39fcaae use UI
+* 07de7c5 tag
+
+Note: because this merging process make create new commit
+      it open some page to write "commit massage"
+      we use default one "Merge branch 'bugfix/login-form"
+
+
+----------------------------------
+FF MERGE VS NO FF MERGE
+
+we have some trade of
+
+1.no ff merge make history completed, and hard to understand
+  but store it intact!
+  linear history is easy to read, but he is not true history!
+
+2.reverting and undoing merge
+  is easy on no FF (because it has all history details)
+
+Note: reverting commit (we will see on rewriting history section)
+      is just new commit!
+      that exactly opposite of last commit (do reverse each act on pre commit!)
+      so in FF due to we move pointer, we have multiple commit that should be revert!
+      but in NO FF we just revert merge commit!
+
+                                                  main
+                                                   |
+                                                   v
++-----+     +-----+     +-----+     +-----+     +-----+
+| C1  |<----| C2  |<----| C3  |<----|merge|<----| C6  |         //this is no ff
++-----+     +-----+     +-----+     +-----+     +-----+         //we just need rever merge commit
+                          ^            |                        //but if we used ff merge
+                          |            v                        //we need to revert both F1,F2
+                       +-----+     +-----+
+                       | F1  |<----| F2  |
+                       +-----+     +-----+
+                                     ^
+                                     |
+                                  feature
+
+Note: we may have policy that we should always use no ff merge
+      we could set it up on config file:
+      "git config --global ff no"
+
+
+SUMMARY: in ff merge, actually we don't use the other branch anymore
+         we can delete it after merging!
+         it move all commits on our current branch like they are exist always!
+         so it remain linear and simple!
+
+         in no ff merge, actually we store the other branch intact
+         we just create some deviation
+         so it make our history a little completed
+         but store it exactly like what it was!
