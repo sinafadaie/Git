@@ -26,3 +26,29 @@ Note: Mosh use venus folder (we have it in section3),
       but because it is submodule, we can not see inside commit
       from here, so we use "branches 1" file.
 
+----------------------------------------
+git log on main branch:
+                       66580ec (HEAD -> main) create branch         //we can not see our commit on bugfix/signup-form branch
+                       0af669d create branch                        //because it's above us!
+                       b970500 branches                             //we have just main pointer
+                       39fcaae use UI                               //we have not any access to that above commit!
+                       07de7c5 tag                                  //(we can see it by --all here)
+
+git log on bugfix/signup-form:
+                              7c4a76d (HEAD ->bugfix/signup-form) fix bug    //we have access to main commit
+                              66580ec (main) create branch                   //because our last commit (7c4a76d)
+                              0af669d create branch                          //has a pointer to it
+                              b970500 branches                               //it's part of our history
+                              39fcaae use UI                                 //we create "bugfix/signup-form" branch
+                                                                             //on this commit (66580ec)
+
+
+Note: due to we make some change on this file
+      in current branch (main branch)
+      when I want to switch, git make some error,
+      he said commit these changes, then switch:
+                                                warning: you are switching branch while bisecting
+                                                error: Your local changes to the following files would be overwritten by checkout:
+                                                          src/section_4/working with branch 2
+                                                Please commit your changes or stash them before you switch branches.
+                                                Aborting
