@@ -48,3 +48,8 @@ and make some new commits:
                                                                ^
                                                                |
                                                               HEAD
+//---------------------4.6
+we have new bug on 4.6 (login bug)
+we write these lines to solve it!
+(we never merged signup bug on main
+ so we still have that bug!)
