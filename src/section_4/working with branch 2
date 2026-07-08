@@ -12,6 +12,10 @@ in next lessons we will merge it.
                                             //but checkout has some other application (it's move head pointer)
                                             //so it is better to use "switch" to switch branch.
 
+Note: use "git branch" to find current branch
+      * bugfix/signup-form
+        main
+
 4.imagine we add some line on "branches 1" file,
   to solve the bug!
   we commit this lines on bugfix/signup-form  branch
