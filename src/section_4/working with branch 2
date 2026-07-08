@@ -1,0 +1,24 @@
+imagine we have a bug on signup form,
+we create new branch to working on it in isolated area!
+in next lessons we will merge it.
+
+
+1.git branch bugfix
+
+2.git branch -m bugfix bugfix/signup-form   //renaming this new branch
+                                            //to better name
+
+3.git switch bugfix/signup-form             //we can use "checkout" command
+                                            //but checkout has some other application (it's move head pointer)
+                                            //so it is better to use "switch" to switch branch.
+
+4.imagine we add some line on "branches 1" file,
+  to solve the bug!
+  we commit this lines on bugfix/signup-form  branch
+  (so these lines not accessible on main branch
+   our working directory changed through branches)
+
+Note: Mosh use venus folder (we have it in section3),
+      but because it is submodule, we can not see inside commit
+      from here, so we use "branches 1" file.
+
