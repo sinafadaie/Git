@@ -1,0 +1,81 @@
+when we switch to a branch,
+git reset our working directory to "last snapshot" of that branch .
+so if we make some modification on some file and don't commit them
+when we want to switch to another branch, git get some error:
+he says these changes will over write (by last commit), and you will miss them!
+commit them, ot stash them!
+
+if our changes are not reach to the point that we want to commit them,
+we can store these changes on somewhere safe. (that is meaning of stash)
+we store them some where in git repository, but not part of the history!
+like exactly current file (stashing 4)
+we are not commit yet, when we want to switch to other branches (like bugfix branch)
+it get some error,
+but if we make some commit (like what we do in pre lesson)
+we will have some EXTRA MEANINGLESS COMMITS!
+to solve this we can stash them!
+
+Note: the current file, is new file
+      so it get just warning (not error)
+      but if we modify the older file, we will have error!
+      at first, I think it because he is untracked file (it does not we add it by intellij)
+      but after I add it to stage area, we just have warning again!
+      why?
+      it's because we have not this file on target branch (stashing 4 not exist on bugfix branch)
+      so when git want to reset working directory to that branch, he don't need over write this file!
+      and our change will not lost.
+      SO WE HAVE ERROR WHEN THE TARGET BRANCH
+      HAS THE FILE WITH "SAME NAME" SO HE NEED OVERWRITING!
+
+1.we changed "working with branches 2" (we forget write deleting branches )
+  so because we have this file on bugfix branch
+  we can not switch anymore!
+
+2.we put these changes on a stash!
+  then switch to bugfix branch
+  "git stash push -m "working on stashing 4 & working with branches 2"
+
+Note: when we push and create a stash, our working directory will cleaned!
+      it means, we have not those changes on current branch!
+      we move them some where else! it's on atmosphere!
+
+Note: we can create multiple stash!
+      imagine after we create stash, and our working directory is cleaned,
+      we modify and make some new changes!
+      we can move them to another stash separately!
+      "git stash push -m "another stash"
+
+Note: we can see all our stashes by
+      "git stash list"       stash@{0}: On master: another stash
+                             stash@{1}: On master: working on stashing 4 & working with branches 2
+
+3.after stashing, and working directory is cleaned
+  we switch to bugfix branch,
+  then we return to main branch again!
+
+4.we want to see what we have on stash, before bring it back
+  we want to check them!
+  "git stash show stash@{0}"
+  or
+  "git stash show 0"
+
+5.we want to bring back our changes now!
+  "git stash apply stash@{0}"
+  or
+  "git stash apply 0"           //we can write it briefly
+
+Note: if we have just one stash
+      we can apply it directly!
+      "git stash apply"
+
+Note: stash is not for specific branch!
+      we can apply them on another branch,
+      we can apply them on bugfix branch!
+
+6 .after we apply stash
+  we should delete them, they will not deleted automatically!
+  "git stash clear"         //remove all stashes
+
+Note: if we want to delete them one by one:
+      "git stash drop 0"
+

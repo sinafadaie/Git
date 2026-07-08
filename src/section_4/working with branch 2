@@ -26,6 +26,12 @@ Note: Mosh use venus folder (we have it in section3),
       but because it is submodule, we can not see inside commit
       from here, so we use "branches 1" file.
 
+5.we can delete branch by -d or -D
+  if we don't merge our changes on other branches,
+  git abort deleting and say hey you will "lost some commits"!
+  we can force deleting by -D
+  "git branch -D branch_name"
+
 ----------------------------------------
 git log on main branch:
                        66580ec (HEAD -> main) create branch         //we can not see our commit on bugfix/signup-form branch
