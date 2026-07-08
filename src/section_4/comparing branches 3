@@ -1,0 +1,48 @@
+some times we want to find out where our branch diverge
+from main branch or some other branch,
+what commits we have on this branch that does not exist on the other
+we need to compare them!
+
+what commit exist on bugfix/signup-form branch
+that not exist on main branch?
+before merging we should see this to find out what commits
+we are transfer to main!
+
+git log main..bugfix/signup-form    //all the commits on bugfix/signup-form
+                                    //that not exist on main
+                                    //the second one is the above one!
+
+git log main..bugfix/signup-form  --oneline         //to see them briefly
+
+git log bugfix/signup-form          //it's show all commits on
+                                    //bugfix/signup-form branch!
+                                    //it is different!
+
+--------------------------------------------
+after finding commits
+we want to comparing changes on these commits.
+
+git diff main..bugfix/signup-form
+                                   diff --git a/src/section_4/branches 1 b/src/section_4/branches 1     //he find the file that is different!
+                                   index 136bb00..4c8cc9d 100644                                        //136bb00..4c8cc9d  means he different version of that file
+                                   --- a/src/section_4/branches 1
+                                   +++ b/src/section_4/branches 1
+                                   @@ -48,3 +48,9 @@ and make some new commits:                         // -48,3 in older version, from line 48 then +3 line has changed
+                                   +                                                                    // +48,9 in new version, from line 48 the +9 line has changed
+                                   +//-----------------------------4.2
+                                   +we add these lines to fix the bug
+                                   +these lines exists on bugfix/signup-form
+                                   +but it is not exist on main branch
+                                   +maybe later we transfer them to main branch by merge!
+
+git diff bugfix/signup-form       //it's exactly same as the pre command
+                                  //because we are in main branch now
+                                  //we don't need "main.." !
+
+--------------------------------------------
+some times we don't need changes
+we just want to see what files has been changed?
+
+git diff --name-only main..bugfix/signup-form
+
+git diff --name-only main..bugfix/signup-form
