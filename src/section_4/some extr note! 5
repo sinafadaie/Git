@@ -1,0 +1,32 @@
+git log --oneline --all
+
+aa7746b (HEAD -> main) stashing             //main is here
+85c4466 comparing branches
+9c4fddb create branch
+7c4a76d (bugfix/signup-form) fix bug        //bugfix is here
+66580ec create branch
+0af669d create branch
+b970500 branches
+39fcaae use UI
+07de7c5 tag
+
+------------------------
+git log main --oneline
+
+aa7746b (HEAD -> main) stashing             //we have not any clue from bugfix branch
+85c4466 comparing branches                  //it is pointing on a commit
+9c4fddb create branch                       //that not exist on main history
+66580ec create branch                       //0af669d is the commit that bugfix generated
+0af669d create branch
+b970500 branches
+39fcaae use UI
+07de7c5 tag
+
+------------------------
+git log bugfix/signup-form --oneline
+
+7c4a76d (bugfix/signup-form) fix bug
+0af669d create branch                      //0af669d has two parent pointer
+b970500 branches                           //a pointer come from 7c4a76d (bugfix)
+39fcaae use UI                             //a pointer come from 66580ec (main)
+07de7c5 tag
