@@ -2,6 +2,8 @@ when we have conflict on merge,
 git are in "merge in progress" state!
 it means we have "conflict marker" on files,
 our repository and working directory is not normal.
+(because he generate some new files that combine old files to merge,
+we have some flag on conflicts,...)
 
 if we can not resolve conflicts, we should go back to normal state:
 

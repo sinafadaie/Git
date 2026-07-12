@@ -1,0 +1,59 @@
+sometimes we need to undo a merge,
+if we don't push yet and history is just local,
+we can just move HEAD and branch pointer to the commit before merging.
+
+but if we pushed, we should not never change history!
+in this situation we should revert merge,
+it means we should create "new" commit that is exactly opposite of merge commit.
+(if the merge was ff, and we have not just a unique merge commit,
+ we need revert them one by one!)
+
+1.moving HEAD by "RESET"
+  "git reset --hard HEAD~1"
+
+imagine we are in 31a560a,
+we will back to ec1a607
+
+ *   31a560a conflict has resolved
+ |\
+ | * 5c8ff89 (conflict-branch) simulate conflict
+ * | ec1a607 simulate conflict
+ |/
+ * 118ef89 simulate conflict
+
+Note: it make HEAD and current branch pointer move
+      to pre commit on current branch.
+      it means we will not move to 5c8ff89
+
+Note: we have three options har d/soft/mixed
+      HARD   means the commit/stage/working directory will returned to that point.
+      SOFT   means just commit will returned to that point.
+      MIXED  means commit/stage will returned to that point. (it's default)
+
+Note: after moving Head and branch pointer to ec1a607,
+      the merge commit (31a560a) will be a garbage!
+      and garbage collector will remove it.
+      but it takes some time, so we can move back the header to him
+      before garbage collector remove it!
+      (git reset --hard 31a560a)
+
+-------------------------------------
+
+2.REVERT MERGE
+              git revert HEAD   //we want revert last commit (HEAD commit)
+
+Note: it get some error:
+                        no -m was given!
+      when the commit has to parent
+      we need to declare to git choose witch one?
+      it is not used parent based on current branch like moving HEAD!
+
+we use:
+       "git revert -m 1 HEAD"
+       it means revert HEAD to first parent
+       who is he?
+       the first one is the main one(ec1a607)
+
+Note: because we are creating new commit
+      by reverting, he opened a window to write message.
+      I do it, then I removed this new commit by HEAD~1!
