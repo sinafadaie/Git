@@ -1,0 +1,21 @@
+in best practice after we finished a branch
+and make our merge, we should delete it
+and preventing confusion in future!
+
+git branch --merged     //when we are in main
+                        //show all branched that merged into the main!
+                        //so if we sure we are finished with these branches
+                        //we can delete them
+
+
+git branch --no -merged  //show all branches that not merged
+                         //on current branch
+                         //if we are in main
+                         //it's show all branches that not merged on main!
+                         //(they our current development)
+
+Note: git branch --no-merged bugfix/signup-form     //we are in main
+                                                    //it show all branches that not merged on "bugfix/signup-form"
+
+      git branch merged bugfix/signup-form          //we are in main
+                                                    //it show all branches that merged on "bugfix/signup-form"

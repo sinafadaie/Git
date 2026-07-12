@@ -41,3 +41,16 @@ Note: to create new commit on main, we get some fake changes on main
 3. we want this file on main,
    we want to merge it on main,
    so we make a merge
+
+   *   e24a915 (HEAD -> main) Merge branch 'feature/change-password'
+   |\
+   | * 7685de6 (feature/change-password) commit on feature
+   | * 6082b27 new feature
+   * | 53b9b9c extra commit
+   |/
+   * fedc7b4 no FF
+   *   3c4766e Merge branch 'bugfix/login-form'
+   |\
+   | * 7b7a5dc (bugfix/login-form) fixbug login form
+   |/
+   * 0f102e9 forward commit
