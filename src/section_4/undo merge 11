@@ -57,3 +57,18 @@ we use:
 Note: because we are creating new commit
       by reverting, he opened a window to write message.
       I do it, then I removed this new commit by HEAD~1!
+
+---------------------------------------
+
+I make reset to merge commit (31a560a)
+it was going some multiple steps back.
+(so some files such as current file removed)
+
+then I create a revert commit,
+so the merge reverted!
+(the "conflicts 9.2" has just main one)
+
+then I reset to last commit id i copied (57ac03c)
+all the removed files backed
+and make revert commit as garbage!
+(there is not any pointer on him now!)
