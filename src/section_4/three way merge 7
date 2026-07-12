@@ -1,0 +1,11 @@
+we are writing this file on "feature/change-password" branch.
+(we create this branch right here)
+when we commit it, it create a new commit after our last last commit
+(where our main branch is standing)
+
+* fedc7b4 (HEAD -> main, feature/change-password) no FF
+*   3c4766e Merge branch 'bugfix/login-form'
+|\
+| * 7b7a5dc (bugfix/login-form) fixbug login form
+|/
+* 0f102e9 forward commit
