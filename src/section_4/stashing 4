@@ -88,3 +88,4 @@ Note: stash is not for specific branch!
 Note: if we want to delete them one by one:
       "git stash drop 0"
 
+
