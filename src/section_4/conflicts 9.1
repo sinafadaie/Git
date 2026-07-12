@@ -1,0 +1,28 @@
+sometimes we have conflicts, when we are merging.
+conflicts happen when:
+
+the same line of code has been changed
+in different ways in two branches.
+                                  the line is different on two branches
+                                  but it was same when these two branches were deviate
+
+Note: this changes could be DELETION!
+      if we delete a file on main,
+      but it still exist on X branch,
+      when we are mering X on main, we have conflict!
+
+Note: this changes could be ADDITION!
+      (add same file, but has different content!)
+      it means when we create new branch as X, there is not a file like Y
+      we add it later on main and X (with different content)
+
+summary: we have conflict when a specif file on based point
+         (when two branch has been deviate)
+         are same, but it has some changes on "BOTH SIDE"
+
+-----------------------------------------
+
+in this situation we need specify what changes we have?
+1.what we have on X
+2.what we have on main
+3.we need both of them
