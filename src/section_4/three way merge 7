@@ -3,9 +3,41 @@ we are writing this file on "feature/change-password" branch.
 when we commit it, it create a new commit after our last last commit
 (where our main branch is standing)
 
-* fedc7b4 (HEAD -> main, feature/change-password) no FF
-*   3c4766e Merge branch 'bugfix/login-form'
-|\
-| * 7b7a5dc (bugfix/login-form) fixbug login form
-|/
-* 0f102e9 forward commit
+    * 6082b27 (HEAD -> feature/change-password) new feature
+    * fedc7b4 (main) no FF                                      //we crate feature branch here (fedc7b4)
+    *   3c4766e Merge branch 'bugfix/login-form'                //at this time the head is simultaneously on feature & main
+    |\                                                          //then we create new commit on feature (6082b27)
+    | * 7b7a5dc (bugfix/login-form) fixbug login form
+    |/
+    * 0f102e9 forward commit
+
+
+1. we have not any divergence now!
+   if we create new commit on main, the deviation will start
+
+    * 53b9b9c (main) extra commit
+    | * 6082b27 (HEAD -> feature/change-password) new feature   //after create new commit on main
+    |/                                                          //the feature branch have some deviation now!
+    * fedc7b4 no FF
+    *   3c4766e Merge branch 'bugfix/login-form'
+    |\
+    | * 7b7a5dc (bugfix/login-form) fixbug login form
+    |/
+    * 0f102e9 forward commit
+
+2. when we have deviation, we can merge them easily!
+   we have conflict.
+   so when we have divergence
+   we can not use ff merge!
+   (to merge feature on main)
+
+Note: to create new commit on main, we get some fake changes on main
+      and create 53b9b9c commit.
+      we have not these changes on feature branch now!
+      so it we will have conflict.
+      in this situation the ff merge is not possible!
+      (we can not move main pointer to feature pointer)
+
+3. we want this file on main,
+   we want to merge it on main,
+   so we make a merge
