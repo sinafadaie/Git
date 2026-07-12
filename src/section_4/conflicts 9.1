@@ -26,3 +26,55 @@ in this situation we need specify what changes we have?
 1.what we have on X
 2.what we have on main
 3.we need both of them
+
+1.we create an empty file as "conflicts 9.2"
+  and then make new branch from main as "conflict-branch"
+  (so "conflicts 9.2" file is empty on both branch!)
+
+2.we add different line on each branch separately
+  "this line added on main"
+  "this line added on conflict-branch"
+
+Note: if we have some changes on X branch
+      and move it to stage, then switch to Y branch
+      and make a commit.
+      we will have this changes on Y!
+      (it possible just on new files, in existing file git does not allow to switch)
+      (staged area is not related to branch, it's related to current working tree
+       we could have some changes on stage, and by switching to another branch,
+       the stage area get clean, because the stage (the changes we added)
+       is compatible with new working directory)
+
+3.when we want merge conflict-branch on main
+  we have conflict on "conflicts 9.2":
+                                      git merge conflict-branch
+
+                                      Auto-merging src/section_4/conflicts 9.2
+                                      CONFLICT (content): Merge conflict in src/section_4/conflicts 9.2
+                                      Automatic merge failed; fix conflicts and then commit the result.
+
+4.we solve the conflict by intellij UI
+  when we counter the conflict, the intellij suggest "abort" or "resolve" on top left
+  we choose "resolve"
+  he open a window and list all conflicts (we have just one file)
+  when we double click on it he opened "conflicts 9.2" file
+  and allow us to choos witch one?
+  we can choose the code on main, or the code on conflict branch!
+  we choose both of them.
+  (we can changed the order of these line)
+
+5.after we apply changes
+  we need a commit to make the merge. (conflict has resolved commit message)
+  now the merge has been completed
+
+Note: when we are choosing changes on UI
+      we can do it manually, and adding some new lines!
+      it's dangerous (we call it "evil commit"
+                      because it add some line that not exist on any branches!
+                      it add by  commit that just want to merge these branches
+                      we should avoid it.
+                      when we are resolving conflict, we should just resolving conflicts!)
+
+Note: we could not solve the conflict by merging main on conflict branch at first!
+      because the "conflicts 9.2" file exist on both of them,
+      it generate conflict on this merging too!
