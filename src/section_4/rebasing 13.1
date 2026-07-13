@@ -1,0 +1,64 @@
+imagine we have some deviation, so ff merge is not possible
+we need three way merge!
+but we want a linear simple history!
+in this situation we use rebasing.
+it means we move the base!
+we move the point that other branch is start deviating!
+we move it at top, by this act we can remove deviation and make a ff merge!
+
+
+                           MAIN
+                            |
+                            v
++------+    +------+    +------+          Note: we can not use ff merge here
+| C1   |<---| C2   |<---| C3   |                we have deviation now
++------+    +------+    +------+                we need new commit to apply the merge!
+                   ^
+                   |
+                +------+    +------+
+                | B1   |<---| B2   |
+                +------+    +------+
+                               ^
+                               |
+                             bugfix
+
+
+                           MAIN
+                            |
+                            v
++------+    +------+    +------+          Note: we rebase the other branch
+| C1   |<---| C2   |<---| C3   |                we move him on a point that remove the deviation!
++------+    +------+    +------+                it allow us make a ff merge! (just move main to B2)
+                           ^                    so we can provide linear history.
+                           |
+                        +------+    +------+
+                        | B1'  |<---| B2'  |
+                        +------+    +------+
+                                       ^
+                                       |
+                                     bugfix
+
+
+Note: commits are "immutable" on git!
+      it means we can not change them or modifying them.
+      by rebasing we need modify B1 and B2 (need changing the pointer)
+      in this situation git create some new commit based on B1 and B2
+      like B1' and B2' with new pointer (B1 has pointer to C2
+                                         B1' has pointer to C3)
+      B1 and B2 will be garbage!
+
+Note: rebasing rewrite History!
+      it change where we actually create that branch!
+      so if we pushed our history, we should not use rebasing, it create BIG mess!
+      but if our history is local, we can use rebasing.
+      (imagine some one create a commit top of the B2,
+       but we removed B2 by rebasing!
+       so we destroyed that person link list!)
+
+Note: usually rebasing introduce new conflict
+      after rebasing we need some time to resolve them!
+
+---------------------------------------------------------------
+
+1.we create new branch as "rebased-branch"
+  at this step.
