@@ -60,7 +60,7 @@ Note: usually rebasing introduce new conflict
 
 ---------------------------------------------------------------
 
-1.we create new branch as "rebased-branch"
+1.we create new branch as "rebase-branch"
   at this step.
 
 2.we create rebasing "13.1" file on "rebase-branch"
@@ -74,3 +74,73 @@ Note: usually rebasing introduce new conflict
    we changed current file on both side after deviation (after creating branch)
    we add step "2" on rebase-branch,
    we add step "3" on Main branch)
+
+History:
+ * c4cafc8 (HEAD -> main) change some file on
+ |                        main branch and simulate conflict         Note: we have deviation now
+ | * 3c6c63a (rebase-branch) change some file on rebase-branch            ff merge is not possible!
+ |/
+ * 6d63a3c start rebase lesson
+ * d043fdf finish sqush merge lesson
+
+
+4.we switched to "rebase-branch"
+  and rebase it!
+  "git rebase main"             //it means move first commit on current branch (rebase-branch)
+                                //to last commit on main branch
+                                //so it like we create "rebase-branch" just now
+
+History:
+ * 1c23bc0 (HEAD -> rebase-branch) change some file on rebase-branch         //Id of commit on rebase-branch has changed
+ * c4cafc8 (main) change some file on main branch and simulate conflict      //it's because commit is immutable
+ * 6d63a3c start rebase lesson
+ * d043fdf finish sqush merge lesson
+ * e674b72 make the squash merge by this commit
+ * 0e929cb squash merging
+
+Note: at this step (rebasing on rebase-branch)
+      we see the conflict, and resolve it by intellij!
+      (we make correct order on 2 and 3 steps)
+      it because at first base the rebasing "13.1" file
+      was same on both branch. but we change it on both sides!
+      in rebasing he make "13.1" file on last commit on main branch as base (where we had step 3)
+      but he don't know where is step 2?
+      because step 2 added in a situation that step 3 was not exist!
+
+5.we are in linear situation now!
+  without any conflicts!
+  switch to main branch and make the merge
+  "git merge rebase-branch"
+                           Updating c4cafc8..1c23bc0
+                           Fast-forward                             //git used ff merge!
+                           src/section_4/rebasing 13.1 | 4 ++++
+                           src/section_4/rebasing 13.2 | 2 ++
+                           2 files changed, 6 insertions(+)
+
+History:
+ * 1c23bc0 (HEAD -> main, rebase-branch) change some                //move main pointer
+                                         file on rebase-branch      //by ff merge
+ * c4cafc8 change some file on main branch and simulate conflict
+ * 6d63a3c start rebase lesson
+ * d043fdf finish sqush merge lesson
+
+
+Note: git rebase --continue
+                           when we are rebasing and see conflict,
+                           after resolving the conflict
+                           we need to continue (use this command)
+                           but intellij do it for us (after resolving conflicts)
+      git rebase --skip
+                           when we are rebasing and see conflict,
+                           some times we figure out the first commit (the current commit that git want to rebase)
+                           is not really necessary!
+                           we just skip it (it means we remove it permanently!)
+                           some times it can remove conflict!
+                           main:    A---B---C
+                                          \           -->  main:   A---B---C---E'---F'
+                           feature:        D---E---F               (D is removed by skipping!)
+
+      git rebase --abort
+                           because we are entered to some combination mood by rebasing
+                           we have conflict flag, some new files that prepare combination,....
+                           we need aborting, if we want back to point before rebasing!
