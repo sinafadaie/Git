@@ -69,3 +69,36 @@ Note: in best practice, we use squash merging on
   so the main getting forward from "bugfix/photo-upload" branch
   and make some deviation (so now ff merging is not accessible)
   the history graph :
+                        * 0e929cb (HEAD -> main) squash merging
+                        | * 4c19af5 (bugfix/photo-upload) second commit
+                        | * 6e249e9 first commit
+                        |/
+                        * b11121b squash merge
+                        * 9caf5e9 undo merge
+
+3.use sqush merge
+  "git merge --squash bugfix/photo-upload"
+
+Note: when we use this command, git don't commit the merge!
+      he move all changes from the other branch (bugfix)
+      to our current branch (main)
+      and add them to STAGE, so we should make commit.           //WE NEED A MANUAL COMMIT
+      by this commit we will have all changes as one commit      //TO FINISHING MERGE PROCESS!
+
+                       * e674b72 (HEAD -> main) make the squash merge by this commit
+                       * 0e929cb squash merging
+                       | * 4c19af5 (bugfix/photo-upload) second commit
+                       | * 6e249e9 first commit
+                       |/
+                       * b11121b squash merge
+                       * 9caf5e9 undo merge
+
+4.the bugfix/photo-upload branch is not connect anywhere now!
+  it just make ambiguity!
+  so we delete it!
+  "git branch -D bugfix/photo-upload"       //we need capital D!
+                                            //because git recognize him as unmerged branch
+                                            //and avoid him from deletion!
+
+Note: if we have conflicts on merging
+      the process of resolving will same as before!
