@@ -61,4 +61,11 @@ Note: in best practice, we use squash merging on
 
 -----------------------------------------------
 
-1.
+1.we create a new branch as "bugfix/photo-upload"
+  we create "sqush merging 12.2" file on him
+  with two dirty commits!
+
+2.we commit these lines on main (1,2 steps)
+  so the main getting forward from "bugfix/photo-upload" branch
+  and make some deviation (so now ff merging is not accessible)
+  the history graph :
