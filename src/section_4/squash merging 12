@@ -1,0 +1,64 @@
+imagine we have a branch like bugfix, and we have a no ff merge (have commit merge)
+in this merge, commits on the bugfix branch, will be history of Main branch.
+but what if bugfix branch commits (B1,B2) have not good quality,
+they are too fine grained! or don't represent a logical step!
+they just check point, they will pollute Main history!
+and we don't really care about history of bugfix branch.
+SOLUTION is "squash merging"!
+                                          MAIN
+                                           |
+                                           v
++------+    +------+    +------+    +-------------+
+| C1   |<---| C2   |<---| C3   |<---|merge commit |
++------+    +------+    +------+    +-------------+     Note: this history shows that because of c3
+                   ^                   |                      we should have conflict on merge!
+                   |                   |
+                +------+    +------+   |
+                | B1   |<---| B2   |<--+
+                +------+    +------+
+                               ^
+                               |
+                              bugfix
+
+
+
+
+SQUASH MERGING
+it will aggregate all the commit's on other branch (from deviation point)
+and put it on Main branch as a "single commit".
+
+Note: this new commit by squash merging, IS NOT MERGE COMMIT!
+      because it does not have two parent. (it does not have pointer to B2)
+      it just regular commit added to master.
+
+                                          MAIN
+                                           |
+                                           v
++------+    +------+    +------+    +-------------+
+| C1   |<---| C2   |<---| C3   |<---| B1+B2 commit|
++------+    +------+    +------+    +-------------+    Note: the squash commit has not
+                   ^                                         any pointer to B2!
+                   |
+                +------+    +------+
+                | B1   |<---| B2   |
+                +------+    +------+
+                               ^
+                               |
+                              bugfix
+
+Note: in best practice, when we used squash merging
+      we should delete the other branch (bugfix branch)
+      because there is not any pointer on main branch to bugfix branch
+      (squash commit has not pointer to the B2 commit)
+      git recognize him as unmerged branch. so when we use
+      "git branch --no-merged" on main, it show bugfix as unmerged branch!
+      so it could create ambiguity for others!
+      just delete bugfix branch (B1,B2 will be garbage)
+
+Note: in best practice, we use squash merging on
+      short lived branches with bad history
+      like a branch for resolving a bug!
+
+-----------------------------------------------
+
+1.
