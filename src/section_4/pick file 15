@@ -4,3 +4,16 @@ and we just want to transfer just a specific file!
 
 ----------------------------------
 
+after we make our changes on "pick-file" branch
+we write these lines on main.
+I expect conflict when git want transfer changes from "pick-file" branch to here
+because he don't know he should put those line above here!
+
+we are in main:
+"git restore --source=pick-file --pick file 15"     //sometime we need -- before file name
+                                                    //sometime we don't need him!
+                                                    //it's depend on git that can recognize him from option or not!
+                                                    //if he complained, we use "--" before file name
+                                                    //--------------------
+                                                    //use target branch (where the target file exist)
+                                                    //on source
