@@ -16,4 +16,25 @@ if we use cherry-pick, we will transfer "pick file 2"
 that we don't want him on main!
 
 we make commit here (before -------- )
+
 ----------------------------------
+
+we are in main:
+"  git restore --source=pick-file "pick file 15"  "
+                                                    //sometime we need -- before file name
+                                                    //sometime we don't need him!
+                                                    //it's depend on git that can recognize him from option or not!
+                                                    //if he complained, we use "--" before file name
+                                                    //--------------------
+                                                    //use target branch (where the target file exist)
+                                                    //on source
+
+Note: before we transfer lines between (---------)
+      by "git restore --source=pick-file "pick file 15""
+      we write some lines here, we expect conflict!
+      but he just over write this file with "LAST VERSION ON PICK-FILE BRANCH"
+      our lines were deleted!
+      I find them by detaching head!
+
+Note: the pick file 15.2 is not transfer to main!
+      it is exist on pick-file branch!
