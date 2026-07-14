@@ -26,3 +26,15 @@ and transfer that commit change to the branch we want.
 ------------------------------------------
 
 1.we create "cherry-branch" in this step
+
+2.we write current step and next steps (2,3,4)
+  on cherry-branch
+
+3.we want transfer these line to main branch (transfer step 2,3,4)
+  after step 4 we make a commit .
+  after commiting we add step 5 as some extra step and make a another commit.
+  by cherry pick (without merge) we transfer step 2,3,4 to main
+  (we not see step 5 now, but it's exist on cherry-branch)
+
+4.we make a fake commit to create divergence!
+  now cherry pick has some deviation!
