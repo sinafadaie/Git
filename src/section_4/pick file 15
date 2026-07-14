@@ -1,0 +1,6 @@
+in cherry-pick we transfer entire commit,
+but what if we change multiple file on a single commit,
+and we just want to transfer just a specific file!
+
+----------------------------------
+
