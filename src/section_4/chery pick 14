@@ -1,0 +1,28 @@
+imagine we have an another branch that have multiple commit,
+but it not ready to merge on master yet!
+but there is some thing on a specific commit that we want it now!
+so we want transfer just one (some) commit without merging entire branch.
+this is where we use chery pick!
+like chery we just pick some commit from that branch,
+and transfer that commit change to the branch we want.
+(the old commit remain intact in his branch)
+
+
+                           MAIN                                                                 MAIN
+                            |                                                                     |
+                            v                                                                     v
++------+    +------+    +------+                           +------+    +------+    +------+    +------+
+| C1   |<---| C2   |<---| C3   |                           | C1   |<---| C2   |<---| C3   |<---| B1'  |
++------+    +------+    +------+        cherry pick        +------+    +------+    +------+    +------+
+                   ^                  -------------->                         ^
+                   |                                                          |
+                +------+    +------+                                       +------+    +------+
+                | B1   |<---| B2   |                                       | B1   |<---| B2   |
+                +------+    +------+                                       +------+    +------+
+                               ^                                                          ^
+                               |                                                          |
+                             bugfix                                                     bugfix
+
+-----------------------------------------
+
+1.we create "cherry-branch" in this step
