@@ -23,6 +23,6 @@ and transfer that commit change to the branch we want.
                                |                                                          |
                              bugfix                                                     bugfix
 
------------------------------------------
+------------------------------------------
 
 1.we create "cherry-branch" in this step
