@@ -4,16 +4,16 @@ and we just want to transfer just a specific file!
 
 ----------------------------------
 
-after we make our changes on "pick-file" branch
-we write these lines on main.
-I expect conflict when git want transfer changes from "pick-file" branch to here
-because he don't know he should put those line above here!
+we create a new branch as "pick-file"
+and write all these lines on this branch. (lines after ------)
+we want transfer this lines to main branch without merge
 
-we are in main:
-"git restore --source=pick-file --pick file 15"     //sometime we need -- before file name
-                                                    //sometime we don't need him!
-                                                    //it's depend on git that can recognize him from option or not!
-                                                    //if he complained, we use "--" before file name
-                                                    //--------------------
-                                                    //use target branch (where the target file exist)
-                                                    //on source
+but we add some extra file as "pick file 15.2"
+on this commit on "pick-file" branch
+(this commit contain current file changes and adding "pick file 2")
+
+if we use cherry-pick, we will transfer "pick file 2"
+that we don't want him on main!
+
+we make commit here (before -------- )
+----------------------------------
