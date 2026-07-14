@@ -1,56 +1,45 @@
-we are writing this file on "feature/change-password" branch.
-(we create this branch right here)
-when we commit it, it create a new commit after our last last commit
-(where our main branch is standing)
+when we have divergence on two branches,
+we have a trangle!
 
-    * 6082b27 (HEAD -> feature/change-password) new feature
-    * fedc7b4 (main) no FF                                      //we crate feature branch here (fedc7b4)
-    *   3c4766e Merge branch 'bugfix/login-form'                //at this time the head is simultaneously on feature & main
-    |\                                                          //then we create new commit on feature (6082b27)
-    | * 7b7a5dc (bugfix/login-form) fixbug login form
-    |/
-    * 0f102e9 forward commit
+1.top of the branch 1
+2.top of the branch 2
+3.the base (the commit that two branch were start deviation)
+
+it means there are not any direct pass from top of the branch1 to branch 2
+so git has to create new commit as merge commit to connect them
+this is called three way merged.
+no ff merge is kind of three way merge!
+
+                            * (commit-massage)
+                            |\
+ *             merge        * \
+ |  *       ----------->    |  *
+ * /                        * /
+ |/                         |/
+ * (base commit)            * (base commit)
 
 
-1. we have not any divergence now!
-   if we create new commit on main, the deviation will start
+Note: git when want to merge them,
+      compare two branches by "base commit"
+      and find the differences.
 
-    * 53b9b9c (main) extra commit
-    | * 6082b27 (HEAD -> feature/change-password) new feature   //after create new commit on main
-    |/                                                          //the feature branch have some deviation now!
-    * fedc7b4 no FF
-    *   3c4766e Merge branch 'bugfix/login-form'
-    |\
-    | * 7b7a5dc (bugfix/login-form) fixbug login form
-    |/
-    * 0f102e9 forward commit
+Note: we have conflict, if we change something on both branch
+      from base commit!
+      (if both changes are exactly same, there are not any conflict!)
 
-2. when we have deviation, we can merge them easily!
-   we have conflict.
-   so when we have divergence
-   we can not use ff merge!
-   (to merge feature on main)
+Note: when we have not any divergence, and fast forward merge is possible
+      we can not have any conflict!
+      because we have just ine road!
+      there is not two different road!
+      conflict is just happened on three way merges!
 
-Note: to create new commit on main, we get some fake changes on main
-      and create 53b9b9c commit.
-      we have not these changes on feature branch now!
-      so it we will have conflict.
-      in this situation the ff merge is not possible!
-      (we can not move main pointer to feature pointer)
-
-3. we want this file on main,
-   we want to merge it on main,
-   so we make a merge
-
-   *   e24a915 (HEAD -> main) Merge branch 'feature/change-password'
-   |\
-   | * 7685de6 (feature/change-password) commit on feature
-   | * 6082b27 new feature
-   * | 53b9b9c extra commit
-   |/
-   * fedc7b4 no FF
-   *   3c4766e Merge branch 'bugfix/login-form'
-   |\
-   | * 7b7a5dc (bugfix/login-form) fixbug login form
-   |/
-   * 0f102e9 forward commit
+Note: the divergence happened, when some backward branch p
+      have some new commit.
+      we have main branch,
+      then we create new branch as test,
+      we create new commit on test           (we have not any divergence now)
+      we create another new commit on test   (we have not any divergence yet)
+                                              it's because master branch is history of test branch now
+      we create new commit on master
+      we have divergence now,
+      this commit is not history of test branch now!
