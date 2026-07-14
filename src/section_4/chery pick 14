@@ -38,3 +38,15 @@ and transfer that commit change to the branch we want.
 
 4.we make a fake commit to create divergence!
   now cherry pick has some deviation!
+
+Note: we write this code after cherry-pick                "git cherry-pick 6f3ae56"
+      "git cherry-pick 6f3ae56" transferred step 2,3,4
+      it create new commit automatically
+      (with old commit massage!)
+
+    * 75392c5 (HEAD -> main) step 2,3,4     //new commit created by cherry pick
+    * 7cabd00 fake commit                   //it has commit massage that we were picked!
+    | * a23232a (cherry-branch) step 5
+    | * 6f3ae56 step 2,3,4
+    |/
+    * 7bc8b4e st
