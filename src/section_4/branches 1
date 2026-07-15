@@ -48,6 +48,11 @@ and make some new commits:
                                                                ^
                                                                |
                                                               HEAD
+
+Note: as important note after I finished this section,
+      just remember merge commits have two pointer!
+      they have two parents.
+      each parent on separate branch.
 //---------------------4.6
 we have new bug on 4.6 (login bug)
 we write these lines to solve it!

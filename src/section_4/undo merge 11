@@ -9,13 +9,13 @@ it means we should create "new" commit that is exactly opposite of merge commit.
  we need revert them one by one!)
 
 1.moving HEAD by "RESET"
-  "git reset --hard HEAD~1"
+  "git reset --hard HEAD~1"     //always use --soft!
 
 imagine we are in 31a560a,
 we will back to ec1a607
 
- *   31a560a conflict has resolved
- |\
+ *   31a560a conflict has resolved                  //merge commit always
+ |\                                                 //has 2 pointer!
  | * 5c8ff89 (conflict-branch) simulate conflict
  * | ec1a607 simulate conflict
  |/
@@ -52,7 +52,9 @@ we use:
        "git revert -m 1 HEAD"
        it means revert HEAD to first parent
        who is he?
-       the first one is the main one(ec1a607)
+       the first one is the main one(ec1a607)               //merge commit has two pointer!
+                                                            //by 1, we say him go back to the commit
+                                                            //that exist on current branch
 
 Note: because we are creating new commit
       by reverting, he opened a window to write message.
