@@ -1,0 +1,45 @@
+we said git is "DISTRIBUTED" system.
+we have multiple repositories (each developer has own local repository)
+so they are not depended on central server, and they can develop offline!
+
+but we collaborate on some centralized server,                                                       +------------+
+instead each local repository collaborate directly!                                  +----------+    | Center DB  |      +-----------+
+because it will be so complex and error prone!                                       | local DB  |<->+------------+ <--->| local DB  |
+we call this "CENTRALIZED WORKFLOW"                                                  +----------+            ^           +-----------+
+                                                                                                             |
+                                                                                                             v
+Note: the servers are distributed,                                                                     +------------+
+      the workflow is centralized!                                                                     | local DB   |
+                                                                                                       +------------+
+Note: the advantage of this is (compare to centralized version control systems)
+      we don't have single point of failure,
+      if the centralized server is not accessible for period of time
+      we can synchronize our work directly (with other repositories)
+
+Note: this central repository
+      can be on a private server
+      can be on  git hosting services (like github,gitlab,bitbucket,...)
+
+
+CLOSED-SOURCE PROJECT
+all closed-source projects like private teams in companies
+use "CENTRALIZED WORKFLOW" .
+
+
+
+OPEN-SOURCE PROJECT
+in open sourced projects, we have "INTEGRATION-MANAGER" work flow!
+it's because every one should not change the real project directly.
+they can not "PUSH" what ever they want!
+the manager should permit the changes!
+
+every developer should "FORK" repository as a copy of project on central server (github)
+then "CLONE" the project from that "FORK" to local repository.
+then "PUSH" them changes on "FORK"
+then send "PULL REQUEST" to "MAINTAINER" of the project,
+he see our notif and will pull our changes from our "FORK"
+then if he agree, he will merge on his local repository
+and finally push them on the "OFFICIAL REPOSITORY"
+
+Note: FORK is copy of official repository on github (not local repository)
+      so we can change it!
