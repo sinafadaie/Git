@@ -1,0 +1,7 @@
+when we have public repository,
+we should invite some developer to the project,
+otherwise they have not access to push!
+they just can see the project.
+
+git clone https://github.com/sinafadaie/java-begginer.git "java beginner"   //we can change
+                                                                            //the folder name
