@@ -1,0 +1,63 @@
+imagine we have a branch as master,
+the commits on this branch can be different on local and remote server
+(like when we cole the project, after that some one push some new commit on master)
+
+so git need a new pointer to define the current branch on remote server!
+like "origin/master"  (origin means original).
+the "ORIGIN/MASTER" is remote tracking branch, and tell us where is
+master branch in origin!
+
+Note: similarly we have origin/HEAD
+      that represent the HEAD pointer on server.
+
+
+REMOTE SEVER:
+                  MASTER
+                    |
+                    v
+    +------+    +------+
+    | C1   |<---| C2   |
+    +------+    +------+
+
+
+
+LOCAL SERVER:
+
+      MASTER
+        |
+        v               Note: the local is not updated
+    +------+                  he don't see the c2 commit on server yet.
+    | C1   |
+    +------+
+        ^
+        |
+  origin/master
+
+
+FETCH
+we can download the c2 commit by "fetch" command
+now the git knows that master on server point to another commit,
+so he will move the origin/master pointer
+but our master branch remained on c1
+"SO THE WORKING DIRECTORY WILL NOT UPDATE BY FETCH"
+
+      MASTER
+        |
+        v
+    +------+    +------+
+    | C1   |<---| C2   |
+    +------+    +------+
+                    ^
+                    |
+              origin/master
+
+Note: if we want to our working directory get update,
+      we need to move "MASTER" branch too.
+      we need a merge for this, now we have not any divergence
+      so it will a ff merge (some times it's a 3 way and has some conflicts):
+
+      "git merge origin/master"         //will move master pointer to c2
+
+----------------------------------------------------
+
+1.
