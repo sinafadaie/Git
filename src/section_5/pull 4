@@ -8,8 +8,51 @@ it will fetch and merge
 so we can have conflict on pulling (because it can make a MERGE!)
 PULL = FETCH + MERGE
 
+              MAIN
+               |
+               v
++------+    +------+
+| C1   |<---| C2   |
++------+    +------+
+               ^
+               |
+          origin/main
+
+
+Note: we should set the merge as default (it was default on older version)
+      "git config pull.rebase false"
+
+                                             MAIN
+                                              |
+                                              v
+      +------+    +------+    +------+    +------+
+      | C1   |<---| C2   |<---| C3   |<---| merge|    Note: we have some local commit as c3
+      +------+    +------+    +------+    +------+          we have B1,b2 on server
+                         ^                   |              we make the pull by a three way merge
+                         |                   |              "git pull"      //when merge is default
+                      +------+    +------+   |
+                      | B1   |<---| B2   |<--|
+                      +------+    +------+
+                                     ^
+                                     |
+                                 origin/main
+
+
 Note: we can use rebasing instead merge
       to create a linear history, it depend on us!
+
+
++------+    +------+    +------+                     Note: we have some local commit as c3
+| C1   |<---| C2   |<---| C3   |                           we have B1,b2 on server
++------+    +------+    +------+      MAIN                 we make the pull by rebasing
+                           ^           |                   "git pull --rebase"
+                           |           v
+                        +------+    +------+
+                        | B1   |<---| B2   |
+                        +------+    +------+
+                                       ^
+                                       |
+                                    origin/main
 
 
 1. we commit this file at end of step 2.
@@ -18,3 +61,19 @@ Note: we can use rebasing instead merge
 2. we delete the "extraFile" manually on github
    and make a commit there, so we have a commit on server
    that not exist on local!
+
+3. because we set merge as default for puling,
+   when pull it make a three way merge (due to diverge we have)
+
+   "git pull"           //it opened a commit massage
+                        *   f25d2d8 (HEAD -> main) Merge branch 'main' of github.com:sinafadaie/Git
+                        |\
+                        | * 901c5e9 (origin/main, origin/HEAD) Delete extraFile
+                        * | e82dca1 pulling
+                        * | dffd88d fetch
+                        |/
+                        * da5f8bc Create some extraFile
+                        * 243f38f git ignore
+
+Note: we can use the rebase option
+      "git pull -- rebase"
