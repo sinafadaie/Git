@@ -60,4 +60,26 @@ Note: if we want to our working directory get update,
 
 ----------------------------------------------------
 
-1.
+1. create a new file as "extraFile" on github manually
+   use fetch command to bring to local
+   so the origin/main get forward.
+   "git fetch"
+                                da5f8bc (origin/main, origin/HEAD) Create some extraFile
+                                243f38f (HEAD -> main) git ignore
+                                a161c5a git ignore
+                                e1d83c6 fetch
+
+2. use merge to move our current branch
+   "git merge origin/main"
+   it will be a fast forward merge (we have not any deviation)
+
+                               da5f8bc (HEAD -> main, origin/main, origin/HEAD) Create some extraFile
+                               243f38f git ignore
+                               a161c5a git ignore
+                               e1d83c6 fetch
+                               eb28f26 credential
+                               765d208 Initial commit
+
+Note: we can use
+      "git branch -vv"
+      to compare current branch and upstream branch on server!
