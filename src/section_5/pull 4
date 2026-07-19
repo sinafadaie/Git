@@ -75,5 +75,21 @@ Note: we can use rebasing instead merge
                         * da5f8bc Create some extraFile
                         * 243f38f git ignore
 
-Note: we can use the rebase option
-      "git pull -- rebase"
+
+Note: we can use the rebase option.             "git pull -- rebase"
+      if we used pull   by rebasing
+      the graph gonna be like:
+
+       * 901c5e9 (HEAD -> main,origin/main, origin/HEAD) Delete extraFile       //we don't have merge commit any more
+      /
+     *  e82dca1 pulling
+     *  dffd88d fetch
+     |
+     * da5f8bc Create some extraFile
+     * 243f38f git ignore
+
+
+
+Note: git pull origin main      //pull main branch
+      git pull origin           //if the current branch is main
+      git pull                  //origin is default!

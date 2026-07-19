@@ -1,0 +1,28 @@
+we have some local commit that not exist on server.
+we can see them by "git branch -vv"
+                                     bugfix/login-form       7b7a5dc fixbug login form
+                                     bugfix/signup-form      7c4a76d fix bug
+                                     cherry-branch           a23232a step 5
+                                     conflict-branch         5c8ff89 simulate conflict
+                                     feature/change-password 7685de6 commit on feature
+                                   * main                    9230156 [origin/main: ahead 4] pulling
+
+we can find them exactly
+" git log --oneline origin/main..main"      //origin/main is a branch!
+
+
+Note: git push origin main      //push main branch
+      git push origin           //if the current branch is main
+      git push                  //origin is default!
+
+Note: sometime we have error on pushing,
+      that's because some new commit exist on server
+      we need to pull first (so merge or rebased happened)
+      then pushing.
+      never make a force push, it will drop other developer commits!
+
+Note: push occurred on current branch,
+      so we need switch or use another branch name on command to push it.
+      so until now we just pushed the "main" branch on git hub
+      I used "all" option to push all the branches!
+      "git push --all"
