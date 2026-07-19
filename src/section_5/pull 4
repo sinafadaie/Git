@@ -1,0 +1,20 @@
+we saw if we have some new changes on server
+we need fetch to bring those commits
+and then we need a merge (can be ff or three way merge)
+to getting our working directory updated.
+
+git combine these steps and create "PULL" command
+it will fetch and merge
+so we can have conflict on pulling (because it can make a MERGE!)
+PULL = FETCH + MERGE
+
+Note: we can use rebasing instead merge
+      to create a linear history, it depend on us!
+
+
+1. we commit this file at end of step 2.
+   so we have a commit that not exist on server
+
+2. we delete the "extraFile" manually on github
+   and make a commit there, so we have a commit on server
+   that not exist on local!
