@@ -64,5 +64,36 @@ dc5731f share branch
 d1f97d7 release
 0a94fda (tag: v1.4, origin/main, origin/HEAD) share tags        //main on origin
 
+5. merge the stage on main
+
+67fe039 (HEAD -> main) Merge branch 'stage'                 //main
+a3feaa2 (stage) step 4                                      //stage (add step 4)
+1328b92 (origin/stage) add step 3 by github                 //origin/stage
+16fd37a share branch
+e5d9b66 share branch
+dc64b32 (last-branch) share branch
+dc5731f share branch
+d1f97d7 release
+0a94fda (tag: v1.4, origin/main, origin/HEAD) share tags    //origin/main, origin/HEAD
+
+6. push main and stage on github
+   (stage has not the step 4 on server)
+
+"git push origin main stage"
+
+67fe039 (HEAD -> main, origin/main, origin/HEAD) Merge branch 'stage'
+a3feaa2 (origin/stage, stage) step 4
+1328b92 add step 3 by github
+16fd37a share branch
+e5d9b66 share branch
+dc64b32 (last-branch) share branch
+dc5731f share branch
+
+Note: "git remote prune origin"
+      if a branch was deleted on server (by github or other developer)
+      but it still exist on our origin  (git branch -r)
+      we can remove these kind of branches by "PRUNE"
+                                                       "git remote prune origin"
+
 SUMMARY: we always need to create branches manually
          we always need to link branches to origin branches manually!
