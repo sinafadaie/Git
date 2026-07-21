@@ -89,5 +89,11 @@ e5d9b66 share branch
 dc64b32 (last-branch) share branch
 dc5731f share branch
 
+Note: "git remote prune origin"
+      if a branch was deleted on server (by github or other developer)
+      but it still exist on our origin  (git branch -r)
+      we can remove these kind of branches by "PRUNE"
+                                                       "git remote prune origin"
+
 SUMMARY: we always need to create branches manually
          we always need to link branches to origin branches manually!
