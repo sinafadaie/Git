@@ -70,3 +70,14 @@ Note: we can see all branches on remote server (github) by:
 Note: we can just push main and last-branch
       the other branches have not upstream yet!
       (although they are exist on server)
+
+4. merge the "last-branch to main"
+
+Note: github show the branches that never merged to main
+      (like LAST-BRANCH before step 4)
+
+5. we can remove the branch from server
+   "git push -d origin last-branch"
+
+Note: this will remove the branch from server
+      but it will remain on local!
