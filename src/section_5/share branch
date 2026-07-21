@@ -1,0 +1,21 @@
+when we create a new local branch,
+if we want to push it on server we have a error "UPSTREAM ERROR"
+it means he doesn't know what is the related branch on server
+we should "LINK" them.
+
+"git branch -vv"        //this command show the branches we linked
+
+Note: we push all branches on server
+      but we don't link them yet
+      (if we switch to one of them and make a push, we get error)
+      (we just link the main branch)
+
+  bugfix/login-form       7b7a5dc fixbug login form
+  bugfix/signup-form      7c4a76d fix bug
+  cherry-branch           a23232a step 5
+  conflict-branch         5c8ff89 simulate conflict
+  feature/change-password 7685de6 commit on feature
+* main                    d1f97d7 [origin/main: ahead 1] release                     //we just link the main branch []
+  overhall-4.7            e24c60a overhall 4,7
+  pick-file               b4cf159 just one commit contain multiple file changes
+  rebase-branch           1c23bc0 change some file on rebase-branch
