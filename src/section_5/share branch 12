@@ -1,0 +1,83 @@
+when we create a new local branch,
+if we want to push it on server we have a error "UPSTREAM ERROR"
+it means he doesn't know what is the related branch on server
+we should "LINK" them.
+
+"git branch -vv"        //this command show the branches we linked
+
+Note: we push all branches on server
+      but we don't link them yet
+      (if we switch to one of them and make a push, we get error)
+      (we just link the main branch)
+
+  bugfix/login-form       7b7a5dc fixbug login form
+  bugfix/signup-form      7c4a76d fix bug
+  cherry-branch           a23232a step 5
+  conflict-branch         5c8ff89 simulate conflict
+  feature/change-password 7685de6 commit on feature
+* main                    d1f97d7 [origin/main: ahead 1] release                     //we just link the main branch []
+  overhall-4.7            e24c60a overhall 4,7
+  pick-file               b4cf159 just one commit contain multiple file changes
+  rebase-branch           1c23bc0 change some file on rebase-branch
+
+
+1. we create a new branch as "LAST-BRANCH"
+   we don't create any link yet on him
+
+  bugfix/login-form       7b7a5dc fixbug login form
+  bugfix/signup-form      7c4a76d fix bug
+  cherry-branch           a23232a step 5
+  conflict-branch         5c8ff89 simulate conflict
+  feature/change-password 7685de6 commit on feature
+* last-branch             dc5731f share branch                                       //we are here
+  main                    dc5731f [origin/main: ahead 2] share branch                //we have not link him to origin like other branches
+  overhall-4.7            e24c60a overhall 4,7
+  pick-file               b4cf159 just one commit contain multiple file changes
+  rebase-branch           1c23bc0 change some file on rebase-branch
+
+
+Note: we can see all branches on remote server (github) by:
+      "git branch -r"
+
+    origin/HEAD -> origin/main              //we have all these branches on server
+    origin/bugfix/login-form                //we have not the "LAST-BRANCH" yet!
+    origin/bugfix/signup-form               //just main branch has linked to local branches! (git branch -vv" )
+    origin/cherry-branch
+    origin/conflict-branch
+    origin/feature/change-password
+    origin/main
+    origin/overhall-4.7
+    origin/pick-file
+    origin/rebase-branch
+
+2. link the "LAST-BRANCH" to server:
+   "git push -u origin last-branch"         //u stand for upstream
+
+  bugfix/login-form       7b7a5dc fixbug login form
+  bugfix/signup-form      7c4a76d fix bug
+  cherry-branch           a23232a step 5
+  conflict-branch         5c8ff89 simulate conflict
+  feature/change-password 7685de6 commit on feature
+* last-branch             dc5731f [origin/last-branch] share branch                 //has link
+  main                    dc5731f [origin/main: ahead 2] share branch               //has link
+  overhall-4.7            e24c60a overhall 4,7
+  pick-file               b4cf159 just one commit contain multiple file changes
+  rebase-branch           1c23bc0 change some file on rebase-branch
+
+3. commit current file on "last-branch"
+   and push him to server.
+
+Note: we can just push main and last-branch
+      the other branches have not upstream yet!
+      (although they are exist on server)
+
+4. merge the "last-branch to main"
+
+Note: github show the branches that never merged to main
+      (like LAST-BRANCH before step 4)
+
+5. we can remove the branch from server
+   "git push -d origin last-branch"
+
+Note: this will remove the branch from server
+      but it will remain on local!

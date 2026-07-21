@@ -1,0 +1,68 @@
+we can have a branch on a server
+that we have not him locally!
+it can created directly on github (we create "stage" branch directly on github)
+it someone else create it and push it on server.
+
+use "git fetch"     //will bring this branch to local repository
+
+git branch -r
+               origin/bugfix/login-form
+               origin/bugfix/signup-form
+               origin/cherry-branch
+               origin/conflict-branch
+               origin/feature/change-password
+               origin/main
+               origin/overhall-4.7
+               origin/pick-file
+               origin/rebase-branch
+               origin/stage                     //we add it by github
+
+
+THE PROBLEM IS WE HAVE NOT THE BRANCH ON LOCAL BRANCH YET!
+WE ALWAYS NEED CREATE THE BRANCH WE WANT TO WORK ON IT EVEN IT EXIST ON SERVER
+(THE LOCAL AND ORIGIN BRANCH ARE DIFFERENT OBJ ALWAYS)
+
+git branch
+              bugfix/login-form             //stage branch does not exist!
+              bugfix/signup-form
+              cherry-branch
+              conflict-branch
+              feature/change-password
+              last-branch
+            * main
+              overhall-4.7
+              pick-file
+              rebase-branch
+
+
+1. git branch stage origin/stage
+                                //branch 'stage' set up to track 'origin/stage'.
+                                //it's some like downstream
+                                //we link them reversely!
+
+Note: we can use direct command by switch
+      "git switch -C stage origin/stage"
+
+2. we commit current file on stage branch
+   and push it to github
+
+Note: some developer can push another commit on stage branch simultaneously
+      on pushing we need resolve the conflicts
+      (they should do too)
+
+3. for simulate other developer working
+   we add step 3 on github directly (on stage branch)
+
+4. we pull the changes (we have just a ff merge by pulling
+                        no new commit)
+
+1328b92 (HEAD -> stage, origin/stage) add step 3 by github      //stage
+16fd37a share branch
+e5d9b66 (main) share branch                                     //main
+dc64b32 (last-branch) share branch
+dc5731f share branch
+d1f97d7 release
+0a94fda (tag: v1.4, origin/main, origin/HEAD) share tags        //main on origin
+
+SUMMARY: we always need to create branches manually
+         we always need to link branches to origin branches manually!
