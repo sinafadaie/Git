@@ -1,0 +1,26 @@
+if we have tag locally,
+we should add or remove it manually on github!
+it does not change by just pushing!
+
+"git push origin tag_name"
+"git push origin --delete tag_name"
+
+1.create tag
+            "git tag v1.2"
+
+  d33c3c6 (HEAD -> main, tag: v1.2, origin/main, origin/HEAD) pushing
+  9230156 pulling
+  f25d2d8 Merge branch 'main' of github.com:sinafadaie/Git
+  e82dca1 pulling
+  901c5e9 Delete extraFile
+  dffd88d fetch
+
+
+2.git push origin tag v1.2
+
+Note: when we push a tag on github,
+      the github provide a zip file on this point,
+      WE CAN DOWNLOAD WHOLE PROJECT DEVELOPED EXACTLY ON THIS TAG!
+
+3.git push origin tag --delete v1.2     //if we want delete it from server
+                                        //it will remain on local!
