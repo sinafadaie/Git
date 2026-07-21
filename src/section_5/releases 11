@@ -1,0 +1,12 @@
+if we have not any tag,
+but we want to create a milestone (a specific point) on our project
+we use released option on GITHUB (it's not git feature)
+it is high level feature build on top of tags.
+
+tags ----> select release button
+we create a release as "v1.4"
+it will create a new tag on the "LAST COMMIT".
+
+Note: we can see releases on the home page of repository!
+      (if we have only tag
+       it does not not exist on home page!)
