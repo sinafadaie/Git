@@ -53,6 +53,16 @@ Note: some developer can push another commit on stage branch simultaneously
 3. for simulate other developer working
    we add step 3 on github directly (on stage branch)
 
+4. we pull the changes (we have just a ff merge by pulling
+                        no new commit)
+
+1328b92 (HEAD -> stage, origin/stage) add step 3 by github      //stage
+16fd37a share branch
+e5d9b66 (main) share branch                                     //main
+dc64b32 (last-branch) share branch
+dc5731f share branch
+d1f97d7 release
+0a94fda (tag: v1.4, origin/main, origin/HEAD) share tags        //main on origin
 
 SUMMARY: we always need to create branches manually
          we always need to link branches to origin branches manually!
