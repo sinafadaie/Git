@@ -50,6 +50,9 @@ Note: some developer can push another commit on stage branch simultaneously
       on pushing we need resolve the conflicts
       (they should do too)
 
+3. for simulate other developer working
+   we add step 3 on github directly (on stage branch)
+
 
 SUMMARY: we always need to create branches manually
          we always need to link branches to origin branches manually!
