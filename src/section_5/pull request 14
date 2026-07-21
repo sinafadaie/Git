@@ -1,0 +1,9 @@
+quite often as part of implementing a feature or fixing a bug
+we would like other team members feedback about our code.
+"PULL REQUEST" open a discussion, the team interact before merging to master!
+
+1. we create the new branch as "develop-branch"
+   and commit this file changes on him
+   and push on the server.
+   then from the github we create a pull request to leila!
+   so leila should review and confirm changes
